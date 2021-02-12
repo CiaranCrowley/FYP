@@ -17,6 +17,14 @@ If you already have Ionic installed, please uninstall it using the first two com
 + $
 + $
 
-<h1>Running the app locally</h1>
+# Running the app locally
 
-+ $  ionic serve **  Runs the app in your default browser  **
++ $  ionic serve --browser chrome **  Runs the app in chrome.  Drop '--browser chrome' if you wish to run the app in your default browser  **
+
+<h3>In Android Studio</h3>
+
++ $
+
+<h3>In IOS</h3>
+
++ $
