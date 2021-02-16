@@ -1,11 +1,14 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
 import { useParams } from 'react-router';
-// import ExploreContainer from '../../components/ExploreContainer';
 import './styles.css';
+import { Plugins } from '@capacitor/core';
+import { sign } from 'crypto';
 
 const Home: React.FC = () => {
-	
-	const { name } = useParams<{ name: string; }>();
+
+	async function signIn() {
+		console.log(Plugins.GoogleAuth.signIn())
+	}
 	
 	return (
 		<IonPage>
@@ -20,8 +23,9 @@ const Home: React.FC = () => {
 			
 			<IonContent fullscreen>
 
-			<IonButton class="login-button-col" color="primary" expand="full" shape="round" routerLink="/page/Login">Login</IonButton>
-			<IonButton class="register-button-col" color="secondary" expand="full" shape="round" routerLink="/page/Register">Register</IonButton>
+				<IonButton class="" color="primary" expand="full" shape="round" onClick={signIn}>Google Login</IonButton>
+				<IonButton class="login-button-col" color="primary" expand="full" shape="round" routerLink="/page/Login">Login</IonButton>
+				<IonButton class="register-button-col" color="secondary" expand="full" shape="round" routerLink="/page/Register">Register</IonButton>
 
 			</IonContent>
 

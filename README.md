@@ -10,12 +10,11 @@ If you already have Ionic installed, please uninstall it using the first two com
 After installing the Ionic CLI, cd to the directory of the project before continuing.
 + $  ionic integrations enable capacitor
 + $  ionic build
-+ $  npx cap add ios OR npx cap add android  **  These commands will generate IOS and Android compatible builds of the app.  Both of these can be run  **
-
-********    NOTE:  I have no way of verifying proper functionality on IOS devices as I do not own a device with MAC OS    ********
-
-+ $  
-+ $
++ $  ionic cap add ios OR ionic cap add android  **  These commands will generate IOS and Android compatible builds of the app.  Both of these can be run  **+ $
++ $  ionic cap copy
++ $  ionic cap sync 
++ $  npm i --save @codetrix-studio/capacitor-google-auth
++ $  ionic cap update
 + $
 + $
 + $
@@ -33,3 +32,4 @@ After installing the Ionic CLI, cd to the directory of the project before contin
 <h3>In Xcode</h3>
 
 + $  npx cap open ios
+****    NOTE:  I have no way of verifying proper functionality on IOS devices as I do not own a device with MAC OS    ****
