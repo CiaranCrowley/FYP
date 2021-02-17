@@ -25,16 +25,15 @@ $  ionic cap update
 ## Running the app locally
 
 ### In a Browser
-<h3>In a Browser</h3>
-**  Runs the app in chrome.  Drop '--browser chrome' if you wish to run the app in your default browser  **
-+ $  ionic serve --browser chrome
+Runs the app in your default browser.   Add '--browser [browser name]' if you wish to run the app in a different browser
+```bash
+$  ionic serve
+```
 
 ### In Android Studio
-<h3>In Android Studio</h3>
 
 + $  npx cap open android
 
 ### In Xcode
-<h3>In Xcode</h3>
 ****  NOTE:  I have no way of verifying proper functionality on IOS devices as I do not own a device with MAC OS  ****
 + $  npx cap open ios
