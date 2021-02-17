@@ -5,6 +5,7 @@
 # Installation Instructions
 First, ensure that Node.js is installed and check that its version is above 10 with '$ node -v'.
 If you already have Ionic installed, please uninstall it using the first two commands below
+** = Explaination
 
 ```bash
 $  npm uninstall -g ionic
@@ -12,9 +13,9 @@ $  npm install -g @ionic/cli
 $  cd 'Project Folder'/'App Folder'
 $  ionic integrations enable capacitor
 $  ionic build
-$  ionic cap add ios OR ionic cap add android  **  These commands will generate IOS and Android compatible builds of the app.  Both of these can be run  **
-$  ionic cap copy  **  Run this after each build to update your IOS and Android builds with any new code  **
-$  ionic cap sync  **  Run this after each build to update any new native code  **
+$  ionic cap add ios OR ionic cap add android  **These commands will generate IOS and Android compatible builds of the app.  Both of these can be run
+$  ionic cap copy  **Run this after each build to update your IOS and Android builds with any new code
+$  ionic cap sync  **Run this after each build to update any new native code
 $  npm i --save @codetrix-studio/capacitor-google-auth
 $  ionic cap update
 ```
@@ -24,9 +25,9 @@ $  ionic cap update
 + $  cd inside of the app folder
 + $  ionic integrations enable capacitor
 + $  ionic build
-+ $  ionic cap add ios OR ionic cap add android  **  These commands will generate IOS and Android compatible builds of the app.  Both of these can be run  **
-+ $  ionic cap copy  **  Run this after each build to update your IOS and Android builds with any new code  **
-+ $  ionic cap sync  **  Run this after each build to update any new native code  **
++ $  ionic cap add ios OR ionic cap add android  **These commands will generate IOS and Android compatible builds of the app.  Both of these can be run
++ $  ionic cap copy  **Run this after each build to update your IOS and Android builds with any new code
++ $  ionic cap sync  **Run this after each build to update any new native code
 + $  npm i --save @codetrix-studio/capacitor-google-auth
 + $  ionic cap update
 
