@@ -22,7 +22,10 @@ ionic cap update
 ***
 ## Create OAuth Credentials to allow Google Auth Functionality
 
+***
 ## Manual Changes to be made in the Android Build
+
+***
 ## Running the app locally
 
 ### In a Browser
@@ -37,7 +40,8 @@ npx cap open android
 ```
 
 ### In Xcode
-> NOTE:  I have no way of verifying proper functionality on IOS devices as I do not own a device with MAC OS
+> NOTE:  I have no way of verifying proper functionality on IOS as I do not own a device with MAC OS
 ```bash
 npx cap open ios
 ```
+***
