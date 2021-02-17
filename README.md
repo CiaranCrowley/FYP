@@ -19,27 +19,22 @@ $  ionic cap sync  **Run this after each build to update any new native code
 $  npm i --save @codetrix-studio/capacitor-google-auth
 $  ionic cap update
 ```
+## Create OAuth Credentials to allow Google Auth Functionality
 
-+ $  npm uninstall -g ionic
-+ $  npm install -g @ionic/cli
-+ $  cd inside of the app folder
-+ $  ionic integrations enable capacitor
-+ $  ionic build
-+ $  ionic cap add ios OR ionic cap add android  **These commands will generate IOS and Android compatible builds of the app.  Both of these can be run
-+ $  ionic cap copy  **Run this after each build to update your IOS and Android builds with any new code
-+ $  ionic cap sync  **Run this after each build to update any new native code
-+ $  npm i --save @codetrix-studio/capacitor-google-auth
-+ $  ionic cap update
-
+## Manual Changes to be made in the Android Build
 ## Running the app locally
+
+### In a Browser
 <h3>In a Browser</h3>
 **  Runs the app in chrome.  Drop '--browser chrome' if you wish to run the app in your default browser  **
 + $  ionic serve --browser chrome
 
+### In Android Studio
 <h3>In Android Studio</h3>
 
 + $  npx cap open android
 
+### In Xcode
 <h3>In Xcode</h3>
 ****  NOTE:  I have no way of verifying proper functionality on IOS devices as I do not own a device with MAC OS  ****
 + $  npx cap open ios
