@@ -1,7 +1,5 @@
 # FYP APP
-
 ## Industrial Machinery Test Data Recording App
-
 ## Installation Instructions
 First, ensure that Node.js is installed and check that its version is above 10 with '$ node -v'.   
 If you already have Ionic installed, please uninstall it using the first two commands below.   
@@ -10,7 +8,7 @@ If you already have Ionic installed, please uninstall it using the first two com
 ```bash
 npm uninstall -g ionic
 npm install -g @ionic/cli
-cd 'Project Folder'/'App Folder'
+cd 'Project Folder'/'App Folder' E.g. cd FYP/FYP_APP
 ionic integrations enable capacitor
 ionic build
 ionic cap add ios OR ionic cap add android  **These commands will generate IOS and Android compatible builds of the app.  Both of these can be run
