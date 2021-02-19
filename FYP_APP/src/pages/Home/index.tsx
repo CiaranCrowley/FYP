@@ -1,14 +1,27 @@
+/* eslint-disable no-labels */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
+import React, { Component } from 'react';
 import { useParams } from 'react-router';
+import { sign } from 'crypto';
 import './styles.css';
 import { Plugins } from '@capacitor/core';
-import { sign } from 'crypto';
+import "@codetrix-studio/capacitor-google-auth";
+
 
 const Home: React.FC = () => {
 
-	async function signIn() {
+	async function signIn(this: any) {
 		console.log(Plugins.GoogleAuth.signIn())
+		// const { history } = this.props;
+		// const result = await Plugins.GoogleAuth.signIn();
+		// console.info('result', result);
+		// if (result) {
+		// 	history.push({
+		// 		pathname: '/pages/Login',
+		// 		state: { name: result.name, image: result.imageUrl, email: result.email }
+		// 	})
+		// }
 	}
 	
 	return (

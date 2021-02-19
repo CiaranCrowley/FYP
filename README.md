@@ -4,7 +4,7 @@
 First, ensure that Node.js is installed and check that its version is above 10 with ```node -v```.   
 If you already have Ionic installed, please uninstall it using the first two commands below.   
 ** = Explaination
-
+<!-- LAST LEFT OFF AT 3:53 IN VIDEO TUTORIAL https://www.youtube.com/watch?v=fXRXbPBHIRs&list=PLYxzS__5yYQkxcATbHyMA6wfEinKL6jPD&index=13 -->
 ```bash
 npm uninstall -g ionic
 npm install -g @ionic/cli
@@ -31,12 +31,10 @@ Runs the app in your default browser.  Add '--browser [browser name]' if you wis
 ```bash
 ionic serve
 ```
-
 ### In Android Studio
 ```bash
 npx cap open android
 ```
-
 ### In Xcode
 > NOTE:  I have no way of verifying proper functionality on IOS as I do not own a device with MAC OS
 ```bash
