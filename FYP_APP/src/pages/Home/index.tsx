@@ -13,15 +13,6 @@ const Home: React.FC = () => {
 
 	async function signIn(this: any) {
 		console.log(Plugins.GoogleAuth.signIn())
-		// const { history } = this.props;
-		// const result = await Plugins.GoogleAuth.signIn();
-		// console.info('result', result);
-		// if (result) {
-		// 	history.push({
-		// 		pathname: '/pages/Login',
-		// 		state: { name: result.name, image: result.imageUrl, email: result.email }
-		// 	})
-		// }
 	}
 	
 	return (
