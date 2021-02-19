@@ -4,7 +4,7 @@
 First, ensure that Node.js is installed and check that its version is above 10 with ```node -v```.   
 If you already have Ionic installed, please uninstall it using the first two commands below.   
 ** = Explaination
-<!-- LAST LEFT OFF AT 3:53 IN VIDEO TUTORIAL https://www.youtube.com/watch?v=fXRXbPBHIRs&list=PLYxzS__5yYQkxcATbHyMA6wfEinKL6jPD&index=13 -->
+
 ```bash
 npm uninstall -g ionic
 npm install -g @ionic/cli
@@ -18,6 +18,12 @@ npm i --save @codetrix-studio/capacitor-google-auth
 ionic cap update
 ```
 ***
+
+## Ignore this, purely for my self while i figure out what is and isnt actually needed
+```bash
+npm i firebase
+npm i @types/firebase --save-dev
+```
 ## Create OAuth Credentials to allow Google Auth Functionality
 
 ***

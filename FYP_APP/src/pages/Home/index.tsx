@@ -28,7 +28,7 @@ const Home: React.FC = () => {
 			
 			<IonContent fullscreen>
 
-				<IonButton class="" color="primary" expand="full" shape="round" onClick={signIn}>Google Login</IonButton>
+				{/* <IonButton class="" color="secondary" expand="full" shape="round" onClick={signIn}>Google Login</IonButton> */}
 				<IonButton class="login-button-col" color="primary" expand="full" shape="round" routerLink="/page/Login">Login</IonButton>
 				<IonButton class="register-button-col" color="secondary" expand="full" shape="round" routerLink="/page/Register">Register</IonButton>
 
