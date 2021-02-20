@@ -26,6 +26,7 @@ import Menu from './components/Menu';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
 
 const App: React.FC = () => {
   return (
@@ -38,6 +39,7 @@ const App: React.FC = () => {
             <Route path="/page/Home" component={Home} exact />
             <Route path="/page/Login" component={Login} exact />
             <Route path="/page/Register" component={Register} exact />
+            <Route path="/page/Dashboard" component={Dashboard} exact />
             <Redirect from="/" to="/page/Home" exact />
           </IonRouterOutlet>
         </IonSplitPane>

@@ -1,5 +1,10 @@
 # FYP APP
 ## Industrial Machinery Test Data Recording App
+## Ignore this, purely for my self while i figure out what is and isnt actually needed
+```bash
+npm i firebase
+npm i @types/firebase --save-dev
+```
 ## Installation Instructions
 First, ensure that Node.js is installed and check that its version is above 10 with ```node -v```.   
 If you already have Ionic installed, please uninstall it using the first two commands below.   
@@ -9,25 +14,18 @@ If you already have Ionic installed, please uninstall it using the first two com
 npm uninstall -g ionic
 npm install -g @ionic/cli
 cd 'Project Folder'/'App Folder' E.g. cd FYP/FYP_APP
-ionic integrations enable capacitor
+npm i firebase
+npm i @types/firebase --save-dev
 ionic build
 ionic cap add ios OR ionic cap add android  **These commands will generate IOS and Android compatible builds of the app.  Both of these can be run
 ionic cap copy  **Run this after each build to update your IOS and Android builds with any new code
 ionic cap sync  **Run this after each build to update any new native code
-npm i --save @codetrix-studio/capacitor-google-auth
-ionic cap update
 ```
 ***
-
-## Ignore this, purely for my self while i figure out what is and isnt actually needed
-```bash
-npm i firebase
-npm i @types/firebase --save-dev
-```
-## Create OAuth Credentials to allow Google Auth Functionality
+## (May be removed) Create OAuth Credentials to allow Google Auth Functionality
 
 ***
-## Manual Changes to be made in the Android Build
+## (May be removed) Manual Changes to be made in the Android Build
 
 ***
 ## Running the app locally

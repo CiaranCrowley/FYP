@@ -1,17 +1,21 @@
-import { IonButtons, IonContent, IonHeader, IonInput, IonButton, IonList, IonMenuButton, IonPage, IonItem, IonTitle, IonToolbar } from '@ionic/react'
+import { IonButtons, IonContent, IonHeader, IonInput, IonButton, IonList, IonMenuButton, IonPage, IonItem, IonTitle, IonToolbar, IonLoading } from '@ionic/react'
 import './styles.css'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import React, { useState } from "react"
 import { toast } from '../../toast'
 import { registerUser } from '../../firebaseConfig'
 
 const Register: React.FC = () => {
 
+	const [busy, setBusy] = useState<boolean>(false);
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [cpassword, setCPassword] = useState('');
+	const history = useHistory();
 
 	async function register() {
+		
+		setBusy(true)
 		// Validation
 		if(password !== cpassword) {
 			return toast('Passwords do not match')
@@ -24,6 +28,8 @@ const Register: React.FC = () => {
 		if(res) {
 			toast('Registration successful')
 		}
+		setBusy(false)
+		history.push('/page/Login')
 	}
 	
 	return (
@@ -36,6 +42,8 @@ const Register: React.FC = () => {
 					<IonTitle>Register</IonTitle>
 				</IonToolbar>
 			</IonHeader>
+
+			<IonLoading message="Registering your details" duration={0} isOpen={busy} />
 
 			<IonContent fullscreen>
 
