@@ -7,11 +7,11 @@ import { registerUser } from '../../firebaseConfig'
 
 const Register: React.FC = () => {
 
-	const [busy, setBusy] = useState<boolean>(false);
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [cpassword, setCPassword] = useState('');
-	const history = useHistory();
+	const [busy, setBusy] = useState<boolean>(false)
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+	const [cpassword, setCPassword] = useState('')
+	const history = useHistory()
 
 	async function register() {
 		
@@ -27,9 +27,9 @@ const Register: React.FC = () => {
 		const res = await registerUser(email!, password!)
 		if(res) {
 			toast('Registration successful')
+			history.push('/page/Login')
 		}
 		setBusy(false)
-		history.push('/page/Login')
 	}
 	
 	return (

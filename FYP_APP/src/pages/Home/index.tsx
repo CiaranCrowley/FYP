@@ -6,8 +6,6 @@ import { useParams } from 'react-router';
 import { sign } from 'crypto';
 import './styles.css';
 import { Plugins } from '@capacitor/core';
-import "@codetrix-studio/capacitor-google-auth";
-
 
 const Home: React.FC = () => {
 

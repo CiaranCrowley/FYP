@@ -1,16 +1,16 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonList, IonItem, IonInput, IonLoading } from '@ionic/react';
-import React, { useState } from 'react';
-import { Link, useHistory  } from 'react-router-dom';
-import './styles.css';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonList, IonItem, IonInput, IonLoading } from '@ionic/react'
+import React, { useState } from 'react'
+import { Link, useHistory  } from 'react-router-dom'
+import './styles.css'
 import { loginUser } from '../../firebaseConfig'
 import { toast } from '../../toast'
 
 const Login: React.FC = () => {
 	
-	const [busy, setBusy] = useState<boolean>(false);
-	const [email, setEmail] = useState('');
-  	const [password, setPassword] = useState('');
-	const history = useHistory();
+	const [busy, setBusy] = useState<boolean>(false)
+	const [email, setEmail] = useState('')
+  	const [password, setPassword] = useState('')
+	const history = useHistory()
 
   	async function login() {
 
@@ -18,10 +18,9 @@ const Login: React.FC = () => {
 		const res = await loginUser(email, password)
 		if(res) {
 			toast("You have successfully logged in")
-			// return <Link to="/page/Dashboard" />
+			history.push('/page/Dashboard')
 		}
 		setBusy(false)
-		history.push('/page/Dashboard')
   	}
 
   return (
