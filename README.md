@@ -16,10 +16,12 @@ npm install -g @ionic/cli
 cd 'Project Folder'/'App Folder' E.g. cd FYP/FYP_APP
 npm i firebase
 npm i @types/firebase --save-dev
+ionic integrations enable capacitor
+npx cap init
 ionic build
-ionic cap add ios OR ionic cap add android  **These commands will generate IOS and Android compatible builds of the app.  Both of these can be run
-ionic cap copy  **Run this after each build to update your IOS and Android builds with any new code
-ionic cap sync  **Run this after each build to update any new native code
+npx cap add ios OR npx cap add android  **These commands will generate IOS and Android compatible builds of the app.  Both of these can be run
+npx cap copy  **Run this after each build to update your IOS and Android builds with any new code
+npx cap sync  **Run this after each build to update any new native code
 ```
 ***
 ## (May be removed) Create OAuth Credentials to allow Google Auth Functionality

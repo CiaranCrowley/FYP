@@ -29,6 +29,12 @@ const appPages: AppPage[] = [
     mdIcon: mailSharp
   },
   {
+    title: 'Site List',
+    url: '/page/Dashboard',
+    iosIcon: mailOutline,
+    mdIcon: mailSharp
+  },
+  {
     title: 'Login',
     url: '/page/Login',
     iosIcon: mailOutline,

@@ -26,7 +26,7 @@ import Menu from './components/Menu';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Site_List';
 
 const App: React.FC = () => {
   return (

@@ -1,0 +1,6 @@
+{
+  "appId": "com.fypapp",
+  "appName": "FYP_APP",
+  "npmClient": "npm",
+  "webDir": "build"
+}
