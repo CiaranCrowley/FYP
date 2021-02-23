@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import { useState } from 'react';
 import './styles.css';
 
@@ -18,6 +18,8 @@ const Kilkenny_Equip_Data: React.FC = () => {
 	const [weatherproof, setWeatherproof] = useState<String>()
 	const [cableMarked, setCableMarked] = useState<String>()
 	const [earthed, setEarthed] = useState<String>()
+	// Commissioning Tests
+	const [comments, setComments] = useState<String>()
 
 	return (
 		<IonPage>
@@ -123,6 +125,55 @@ const Kilkenny_Equip_Data: React.FC = () => {
 						<IonItem>
 							<IonLabel>Date</IonLabel>
 							<IonDatetime></IonDatetime>
+						</IonItem>
+					</IonItemGroup>
+				</IonList>
+
+				<IonListHeader>Commissioning Tests</IonListHeader>
+				<IonList>
+					<IonItemGroup>
+						<IonItem>
+							<IonLabel>E-Stop/Isolator Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Continuity Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Voltage Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Overload Setting</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Heater Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Thermistor Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Seal Leak Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Insulation Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Resistance Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Opetating Voltage Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Rotation Check</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Operation on HMI?SCADA</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Test Equipment Type</IonLabel>
+						</IonItem>
+						<IonItem>
+							<IonLabel>Comments</IonLabel>
+							<IonTextarea placeholder="Comments" onIonChange={(e: any) => setComments(e.target.value)}></IonTextarea>
 						</IonItem>
 					</IonItemGroup>
 				</IonList>
