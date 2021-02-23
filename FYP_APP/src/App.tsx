@@ -26,7 +26,10 @@ import Menu from './components/Menu';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Site_List';
+import Site_List from './pages/Site_List';
+import Carrick_Equip_Data from './pages/Equipment_Data/Carrick_Equip_Data';
+import Kilkenny_Equip_Data from './pages/Equipment_Data/Kilkenny_Equip_Data';
+import Waterford_Equip_Data from './pages/Equipment_Data/Waterfoed_Equip_Data';
 
 const App: React.FC = () => {
   return (
@@ -39,7 +42,10 @@ const App: React.FC = () => {
             <Route path="/page/Home" component={Home} exact />
             <Route path="/page/Login" component={Login} exact />
             <Route path="/page/Register" component={Register} exact />
-            <Route path="/page/Dashboard" component={Dashboard} exact />
+            <Route path="/page/Site_List" component={Site_List} exact />
+            <Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data} exact />
+            <Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data} exact />
+            <Route path="/page/Waterford_Equip_Data" component={Waterford_Equip_Data} exact />
             <Redirect from="/" to="/page/Home" exact />
           </IonRouterOutlet>
         </IonSplitPane>

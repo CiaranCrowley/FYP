@@ -1,7 +1,7 @@
 import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonImg, IonItem, IonList, IonMenuButton, IonPage, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
 import './styles.css';
 
-const Dashboard: React.FC = () => {
+const Site_List: React.FC = () => {
 
 	return (
 		<IonPage>
@@ -16,7 +16,7 @@ const Dashboard: React.FC = () => {
 
 			<IonContent fullscreen>
 
-				<IonCard routerLink="/page/Login">
+				<IonCard routerLink="/page/Carrick_Equip_Data">
 					<img alt="" src="https://i.imgur.com/iBVlQ4h.png" />
 					<IonCardHeader>
 						<IonCardTitle>Carrick-on-Suir</IonCardTitle>
@@ -26,7 +26,7 @@ const Dashboard: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				<IonCard routerLink="/page/Login">
+				<IonCard routerLink="/page/Kilkenny_Equip_Data">
 					<img alt="" src="https://i.imgur.com/HSPaGNN.png" />
 					<IonCardHeader>
 						<IonCardTitle>Kilkenny</IonCardTitle>
@@ -36,7 +36,7 @@ const Dashboard: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				<IonCard routerLink="/page/Login">
+				<IonCard routerLink="/page/Waterford_Equip_Data">
 					<img alt="" src="https://i.imgur.com/OA8JArQ.png" />
 					<IonCardHeader>
 						<IonCardTitle>Waterford</IonCardTitle>
@@ -52,4 +52,4 @@ const Dashboard: React.FC = () => {
 	);
 };
 
-export default Dashboard;
+export default Site_List;

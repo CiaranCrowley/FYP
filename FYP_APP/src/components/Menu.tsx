@@ -30,7 +30,7 @@ const appPages: AppPage[] = [
   },
   {
     title: 'Site List',
-    url: '/page/Dashboard',
+    url: '/page/Site_List',
     iosIcon: mailOutline,
     mdIcon: mailSharp
   },
