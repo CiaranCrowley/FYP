@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSearchbar, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState } from 'react';
 import './styles.css';
 
@@ -34,7 +34,7 @@ const Carrick_Equip_Data: React.FC = () => {
 			</IonHeader>
 
 			<IonContent fullscreen>
-
+				{/* <IonSearchbar></IonSearchbar> */}
 				<IonListHeader>Details</IonListHeader>
 				<IonList>
 					<IonItemGroup>
@@ -178,7 +178,6 @@ const Carrick_Equip_Data: React.FC = () => {
 						</IonItem>
 					</IonItemGroup>
 				</IonList>
-
 			</IonContent>
 			
 		</IonPage>
