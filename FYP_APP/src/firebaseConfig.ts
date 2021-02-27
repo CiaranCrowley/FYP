@@ -1,6 +1,6 @@
 import firebase from "firebase/app"
 import "firebase/auth"
-import "firebase/firebase-firestore"
+import "firebase/database"
 import { toast } from  './toast'
 
 const config = {
@@ -14,7 +14,7 @@ const config = {
 }
 
 firebase.initializeApp(config)
-const db = firebase.firestore()
+const db = firebase.database()
 
 export async function loginUser(email: string, password: string) {
 	
@@ -37,4 +37,12 @@ export async function registerUser(email: string, password: string) {
 		toast(error.message, 4000)
 		return false
 	}
+}
+
+export async function submitData(siteName: any, category: any, contractNo: any, tagNo: any, location: any, manufacturer: any, serialNo: any, voltage: any, rpm: any, secure: any, weatherproof: any, cableMarked: any, earthed: any, installationTestDate: any, comments: any) {
+	const dataRef = db.ref("data")
+	const newDataRef = dataRef.push()
+	newDataRef.set({
+		siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments
+	})
 }
