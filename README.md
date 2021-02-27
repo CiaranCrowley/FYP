@@ -5,7 +5,7 @@
 ## Installation Instructions
 
 First, ensure that Node.js is installed and check that its version is above 10 with ```node -v```.
-If you already have Ionic installed, please uninstall it using the first two commands below.\n
+If you already have Ionic installed, please uninstall it using the first two commands below.  
 ** = Explaination
 
 ```bash
@@ -32,6 +32,8 @@ Runs the app in your default browser.  Add '--browser [browser name]' if you wis
 
 ```bash
 ionic serve
+OR
+npm run
 ```
 
 ### In Android Studio
