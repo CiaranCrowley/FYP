@@ -31,7 +31,12 @@ import Site_List from './pages/Site_List';
 import Carrick_Equip_Types from './pages/Equipment_Types/Carrick';
 import Kilkenny_Equip_Types from './pages/Equipment_Types/Kilkenny';
 import Waterford_Equip_Types from './pages/Equipment_Types/Waterford';
-// Equipment Data Pages
+// Equipment Read Pages
+import Carrick_All from './pages/Equipment_Read/Carrick/All';
+import Carrick_FlowMeters from './pages/Equipment_Read/Carrick/FlowMeters';
+import Carrick_Motors from './pages/Equipment_Read/Carrick/Motors';
+import Carrick_Pumps from './pages/Equipment_Read/Carrick/Pumps';
+// Equipment Data Input Pages
 import Carrick_Equip_Data_Inputs from './pages/Equipment_Data_Input/Carrick';
 import Kilkenny_Equip_Data_Inputs from './pages/Equipment_Data_Input/Kilkenny';
 import Waterford_Equip_Data_Inputs from './pages/Equipment_Data_Input/Waterford';
@@ -52,6 +57,11 @@ const App: React.FC = () => {
             <Route path="/page/Carrick_Equip_Types" component={Carrick_Equip_Types} exact />
             <Route path="/page/Kilkenny_Equip_types" component={Kilkenny_Equip_Types} exact />
             <Route path="/page/Waterford_Equip_Types" component={Waterford_Equip_Types} exact />
+            {/* Equipment Read Pages */}
+            <Route path="/page/Carrick_All" component={Carrick_All} exact />
+            <Route path="/page/Carrick_FlowMeters" component={Carrick_FlowMeters} exact />
+            <Route path="/page/Carrick_Motors" component={Carrick_Motors} exact />
+            <Route path="/page/Carrick_Pumps" component={Carrick_Pumps} exact />
             {/* Equipment Data Inputs Pages */}
             <Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data_Inputs} exact />
             <Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data_Inputs} exact />

@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSearchbar, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState } from 'react';
 import './styles.css';
 import { submitData } from "../../../firebaseConfig"
@@ -44,7 +44,6 @@ const Carrick_Equip_Data_Inputs: React.FC = () => {
 			</IonHeader>
 
 			<IonContent fullscreen>
-				{/* <IonSearchbar></IonSearchbar> */}
 				<IonListHeader>Details</IonListHeader>
 				<IonList>
 					<IonItemGroup>
