@@ -5,7 +5,7 @@
 ## Installation Instructions
 
 First, ensure that Node.js is installed and check that its version is above 10 with ```node -v```.
-If you already have Ionic installed, please uninstall it using the first two commands below.
+If you already have Ionic installed, please uninstall it using the first two commands below.\n
 ** = Explaination
 
 ```bash
@@ -21,14 +21,6 @@ npx cap add ios OR npx cap add android  **These commands will generate IOS and A
 npx cap copy  **Run this after each build to update your IOS and Android builds with any new code
 npx cap sync  **Run this after each build to update any new native code
 ```
-
-***
-
-## (May be removed) Create OAuth Credentials to allow Google Auth Functionality
-
-***
-
-## (May be removed) Manual Changes to be made in the Android Build
 
 ***
 
