@@ -1,12 +1,12 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
-import { useState } from 'react';
+import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSearchbar, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useState } from 'react';
 import './styles.css';
 import { submitData } from "../../../firebaseConfig"
 
-const Kilkenny_Equip_Data: React.FC = () => {
+const Carrick_Equip_Data_Inputs: React.FC = () => {
 
 	// Equipment Details
-	const [siteName, setSiteName] = useState("Kilkenny")
+	const siteName: string = "Carrick-on-Suir"
 	const [category, setCategory] = useState("")
 	const [contractNo, setContractNo] = useState("")
 	const [tagNo, setTagNo] = useState("")
@@ -28,6 +28,8 @@ const Kilkenny_Equip_Data: React.FC = () => {
 		submitData(siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments)
 	}
 
+	// If category === motor, tagNo starts with 'M' || category === pump, tagNo starts with 'P' || category === Flow Meter, tagNo starts with 'FL'
+
 	return (
 		<IonPage>
 
@@ -42,12 +44,12 @@ const Kilkenny_Equip_Data: React.FC = () => {
 			</IonHeader>
 
 			<IonContent fullscreen>
-
+				{/* <IonSearchbar></IonSearchbar> */}
 				<IonListHeader>Details</IonListHeader>
 				<IonList>
 					<IonItemGroup>
 						<IonItem>
-							<IonLabel>Site Name: Kilkenny</IonLabel>
+							<IonLabel>Site Name: Carrick-on-Suir</IonLabel>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Category:</IonLabel>
@@ -55,6 +57,7 @@ const Kilkenny_Equip_Data: React.FC = () => {
 								<IonSelectOption value="Motor">Motor</IonSelectOption>
 								<IonSelectOption value="Pump">Pump</IonSelectOption>
 								<IonSelectOption value="Flow Meter">Flow Meter</IonSelectOption>
+								<IonSelectOption value="Blank">Blank</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
@@ -127,6 +130,7 @@ const Kilkenny_Equip_Data: React.FC = () => {
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
+						{/* Figure out how to do this */}
 						<IonItem>
 							<IonLabel>Signed For Electrical Installer</IonLabel>
 						</IonItem>
@@ -185,11 +189,10 @@ const Kilkenny_Equip_Data: React.FC = () => {
 						</IonItem>
 					</IonItemGroup>
 				</IonList>
-
 			</IonContent>
 			
 		</IonPage>
 	);
 };
 
-export default Kilkenny_Equip_Data;
+export default Carrick_Equip_Data_Inputs;

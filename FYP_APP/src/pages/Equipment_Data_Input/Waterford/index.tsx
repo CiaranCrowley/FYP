@@ -1,12 +1,12 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSearchbar, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
-import React, { useState } from 'react';
+import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
+import { useState } from 'react';
 import './styles.css';
 import { submitData } from "../../../firebaseConfig"
 
-const Carrick_Equip_Data: React.FC = () => {
+const Waterford_Equip_Data_Inputs: React.FC = () => {
 
 	// Equipment Details
-	const [siteName, setSiteName] = useState("Carrick-on-Suir")
+	const siteName: string = "Waterford"
 	const [category, setCategory] = useState("")
 	const [contractNo, setContractNo] = useState("")
 	const [tagNo, setTagNo] = useState("")
@@ -42,12 +42,12 @@ const Carrick_Equip_Data: React.FC = () => {
 			</IonHeader>
 
 			<IonContent fullscreen>
-				{/* <IonSearchbar></IonSearchbar> */}
+
 				<IonListHeader>Details</IonListHeader>
 				<IonList>
 					<IonItemGroup>
 						<IonItem>
-							<IonLabel>Site Name: Carrick-on-Suir</IonLabel>
+							<IonLabel>Site Name: Waterford</IonLabel>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Category:</IonLabel>
@@ -55,7 +55,6 @@ const Carrick_Equip_Data: React.FC = () => {
 								<IonSelectOption value="Motor">Motor</IonSelectOption>
 								<IonSelectOption value="Pump">Pump</IonSelectOption>
 								<IonSelectOption value="Flow Meter">Flow Meter</IonSelectOption>
-								<IonSelectOption value="Blank">Blank</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
@@ -128,7 +127,6 @@ const Carrick_Equip_Data: React.FC = () => {
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
-						{/* Figure out how to do this */}
 						<IonItem>
 							<IonLabel>Signed For Electrical Installer</IonLabel>
 						</IonItem>
@@ -187,10 +185,11 @@ const Carrick_Equip_Data: React.FC = () => {
 						</IonItem>
 					</IonItemGroup>
 				</IonList>
+
 			</IonContent>
 			
 		</IonPage>
 	);
 };
 
-export default Carrick_Equip_Data;
+export default Waterford_Equip_Data_Inputs;

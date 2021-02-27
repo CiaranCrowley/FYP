@@ -1,13 +1,12 @@
 import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
-import { ear, earth } from 'ionicons/icons';
 import { useState } from 'react';
 import './styles.css';
 import { submitData } from "../../../firebaseConfig"
 
-const Waterford_Equip_Data: React.FC = () => {
+const Kilkenny_Equip_Data_Inputs: React.FC = () => {
 
 	// Equipment Details
-	const [siteName, setSiteName] = useState("Waterford")
+	const siteName: string = "Kilkenny"
 	const [category, setCategory] = useState("")
 	const [contractNo, setContractNo] = useState("")
 	const [tagNo, setTagNo] = useState("")
@@ -48,7 +47,7 @@ const Waterford_Equip_Data: React.FC = () => {
 				<IonList>
 					<IonItemGroup>
 						<IonItem>
-							<IonLabel>Site Name: Waterford</IonLabel>
+							<IonLabel>Site Name: Kilkenny</IonLabel>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Category:</IonLabel>
@@ -193,4 +192,4 @@ const Waterford_Equip_Data: React.FC = () => {
 	);
 };
 
-export default Waterford_Equip_Data;
+export default Kilkenny_Equip_Data_Inputs;

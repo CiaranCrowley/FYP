@@ -16,7 +16,7 @@ const Site_List: React.FC = () => {
 
 			<IonContent fullscreen>
 
-				<IonCard routerLink="/page/Carrick_Equip_Data">
+				<IonCard routerLink="/page/Carrick_Equip_Types">
 					<img alt="" src="https://i.imgur.com/iBVlQ4h.png" />
 					<IonCardHeader>
 						<IonCardTitle>Carrick-on-Suir</IonCardTitle>

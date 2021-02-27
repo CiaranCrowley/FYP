@@ -27,9 +27,14 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Site_List from './pages/Site_List';
-import Carrick_Equip_Data from './pages/Equipment_Data/Carrick_Equip_Data';
-import Kilkenny_Equip_Data from './pages/Equipment_Data/Kilkenny_Equip_Data';
-import Waterford_Equip_Data from './pages/Equipment_Data/Waterfoed_Equip_Data';
+// Epuipment Type Pages
+import Carrick_Equip_Types from './pages/Equipment_Types/Carrick';
+import Kilkenny_Equip_Types from './pages/Equipment_Types/Kilkenny';
+import Waterford_Equip_Types from './pages/Equipment_Types/Waterford';
+// Equipment Data Pages
+import Carrick_Equip_Data_Inputs from './pages/Equipment_Data_Input/Carrick';
+import Kilkenny_Equip_Data_Inputs from './pages/Equipment_Data_Input/Kilkenny';
+import Waterford_Equip_Data_Inputs from './pages/Equipment_Data_Input/Waterford';
 
 const App: React.FC = () => {
   return (
@@ -43,9 +48,14 @@ const App: React.FC = () => {
             <Route path="/page/Login" component={Login} exact />
             <Route path="/page/Register" component={Register} exact />
             <Route path="/page/Site_List" component={Site_List} exact />
-            <Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data} exact />
-            <Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data} exact />
-            <Route path="/page/Waterford_Equip_Data" component={Waterford_Equip_Data} exact />
+            {/* Equipment Type Pages Links */}
+            <Route path="/page/Carrick_Equip_Types" component={Carrick_Equip_Types} exact />
+            <Route path="/page/Kilkenny_Equip_types" component={Kilkenny_Equip_Types} exact />
+            <Route path="/page/Waterford_Equip_Types" component={Waterford_Equip_Types} exact />
+            {/* Equipment Data Inputs Pages */}
+            <Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data_Inputs} exact />
+            <Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data_Inputs} exact />
+            <Route path="/page/Waterford_Equip_Data" component={Waterford_Equip_Data_Inputs} exact />
             <Redirect from="/" to="/page/Home" exact />
           </IonRouterOutlet>
         </IonSplitPane>
