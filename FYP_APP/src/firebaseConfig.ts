@@ -46,3 +46,5 @@ export async function submitData(siteName: any, category: any, contractNo: any, 
 		siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments
 	})
 }
+
+export default firebase;

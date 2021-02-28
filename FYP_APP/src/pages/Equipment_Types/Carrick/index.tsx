@@ -15,25 +15,29 @@ const Carrick_Equip_Types: React.FC = () => {
 			</IonHeader>
 
 			<IonContent fullscreen>
-				
+
+				<IonCard routerLink="/page/Carrick_Equip_Data">
+					<IonCardHeader>Add new Data</IonCardHeader>
+				</IonCard>
+
 				<IonCard routerLink="/page/Carrick_All">
-					<IonCardHeader>All Equipment Types</IonCardHeader>
+					<IonCardHeader>View All Equipment Types</IonCardHeader>
 				</IonCard>
 
 				<IonCard routerLink="/page/Carrick_FlowMeters">
-					<IonCardHeader>Flow Meters</IonCardHeader>
+					<IonCardHeader>View Flow Meters</IonCardHeader>
 				</IonCard>
 
 				<IonCard routerLink="/page/Carrick_Motors">
-					<IonCardHeader>Motors</IonCardHeader>
+					<IonCardHeader>View Motors</IonCardHeader>
 				</IonCard>
 
 				<IonCard routerLink="/page/Carrick_Pumps">
-					<IonCardHeader>Pumps</IonCardHeader>
+					<IonCardHeader>View Pumps</IonCardHeader>
 				</IonCard>
 
 			</IonContent>
-			
+
 		</IonPage>
 	);
 };
