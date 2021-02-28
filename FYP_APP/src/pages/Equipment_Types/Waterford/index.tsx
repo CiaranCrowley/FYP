@@ -1,5 +1,5 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonCard, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCardHeader } from '@ionic/react';
-import React, { useState } from 'react';
+import { IonButtons, IonContent, IonHeader, IonCard, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCardHeader } from '@ionic/react';
+import React from 'react';
 
 const Waterford_Equip_Types: React.FC = () => {
 	return (
@@ -10,29 +10,25 @@ const Waterford_Equip_Types: React.FC = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>Equipment Types</IonTitle>
+					<IonTitle>Waterford Equipment Types</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
 			<IonContent fullscreen>
 				
-				{/* routerLink="/page/Carrick_All_Data" */}
-				<IonCard>
+				<IonCard routerLink="/page/Waterford_All">
 					<IonCardHeader>All Equipment Types</IonCardHeader>
 				</IonCard>
 				
-				{/* routerLink="/page/Carrick_Motor_Data" */}
-				<IonCard>
+				<IonCard routerLink="/page/Waterford_Motors">
 					<IonCardHeader>Motors</IonCardHeader>
 				</IonCard>
 
-				{/* routerLink="/page/Carrick_Pump_Data" */}
-				<IonCard>
+				<IonCard routerLink="/page/Waterford_Pumps">
 					<IonCardHeader>Pumps</IonCardHeader>
 				</IonCard>
 
-				{/* routerLink="/page/Carrick_FlowMeter_Data" */}
-				<IonCard>
+				<IonCard routerLink="/page/Waterford_FlowMeters">
 					<IonCardHeader>Flow Meters</IonCardHeader>
 				</IonCard>
 

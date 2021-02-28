@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonImg, IonItem, IonList, IonMenuButton, IonPage, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './styles.css';
 
 const Site_List: React.FC = () => {
@@ -26,7 +26,7 @@ const Site_List: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				<IonCard routerLink="/page/Kilkenny_Equip_Data">
+				<IonCard routerLink="/page/Kilkenny_Equip_Types">
 					<img alt="" src="https://i.imgur.com/HSPaGNN.png" />
 					<IonCardHeader>
 						<IonCardTitle>Kilkenny</IonCardTitle>
@@ -36,7 +36,7 @@ const Site_List: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				<IonCard routerLink="/page/Waterford_Equip_Data">
+				<IonCard routerLink="/page/Waterford_Equip_Types">
 					<img alt="" src="https://i.imgur.com/OA8JArQ.png" />
 					<IonCardHeader>
 						<IonCardTitle>Waterford</IonCardTitle>

@@ -1,7 +1,7 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonCard, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCardHeader } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
 
-const Kilkenny_Equip_Read: React.FC = () => {
+const Waterford_Pumps: React.FC = () => {
 	return (
 		<IonPage>
 
@@ -10,7 +10,7 @@ const Kilkenny_Equip_Read: React.FC = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>Kilkenny</IonTitle>
+					<IonTitle>Pumps Waterford</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
@@ -22,4 +22,4 @@ const Kilkenny_Equip_Read: React.FC = () => {
 	);
 };
 
-export default Kilkenny_Equip_Read;
+export default Waterford_Pumps;

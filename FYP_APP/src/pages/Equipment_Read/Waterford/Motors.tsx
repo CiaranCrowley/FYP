@@ -1,7 +1,7 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonCard, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCardHeader } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
 
-const Waterford_Equip_Read: React.FC = () => {
+const Waterford_Motors: React.FC = () => {
 	return (
 		<IonPage>
 
@@ -10,7 +10,7 @@ const Waterford_Equip_Read: React.FC = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>Waterford</IonTitle>
+					<IonTitle>Motors Waterford</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
@@ -22,4 +22,4 @@ const Waterford_Equip_Read: React.FC = () => {
 	);
 };
 
-export default Waterford_Equip_Read;
+export default Waterford_Motors;

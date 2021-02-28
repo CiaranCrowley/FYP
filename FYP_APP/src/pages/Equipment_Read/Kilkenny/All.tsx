@@ -1,7 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 
-const Carrick_All: React.FC = () => {
+const Kilkenny_All: React.FC = () => {
 	return (
 		<IonPage>
 
@@ -10,7 +10,7 @@ const Carrick_All: React.FC = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>All Carrick</IonTitle>
+					<IonTitle>All Kilkenny</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
@@ -22,4 +22,4 @@ const Carrick_All: React.FC = () => {
 	);
 };
 
-export default Carrick_All;
+export default Kilkenny_All;

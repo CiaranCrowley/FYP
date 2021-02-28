@@ -36,6 +36,14 @@ import Carrick_All from './pages/Equipment_Read/Carrick/All';
 import Carrick_FlowMeters from './pages/Equipment_Read/Carrick/FlowMeters';
 import Carrick_Motors from './pages/Equipment_Read/Carrick/Motors';
 import Carrick_Pumps from './pages/Equipment_Read/Carrick/Pumps';
+import Kilkenny_All from './pages/Equipment_Read/Kilkenny/All';
+import Kilkenny_FlowMeters from './pages/Equipment_Read/Kilkenny/FlowMeters';
+import Kilkenny_Motors from './pages/Equipment_Read/Kilkenny/Motors';
+import Kilkenny_Pumps from './pages/Equipment_Read/Kilkenny/Pumps';
+import Waterford_All from './pages/Equipment_Read/Waterford/All';
+import Waterford_FlowMeters from './pages/Equipment_Read/Waterford/FlowMeters';
+import Waterford_Motors from './pages/Equipment_Read/Waterford/Motors';
+import Waterford_Pumps from './pages/Equipment_Read/Waterford/Pumps';
 // Equipment Data Input Pages
 import Carrick_Equip_Data_Inputs from './pages/Equipment_Data_Input/Carrick';
 import Kilkenny_Equip_Data_Inputs from './pages/Equipment_Data_Input/Kilkenny';
@@ -62,6 +70,14 @@ const App: React.FC = () => {
             <Route path="/page/Carrick_FlowMeters" component={Carrick_FlowMeters} exact />
             <Route path="/page/Carrick_Motors" component={Carrick_Motors} exact />
             <Route path="/page/Carrick_Pumps" component={Carrick_Pumps} exact />
+            <Route path="/page/Kilkenny_All" component={Kilkenny_All} exact />
+            <Route path="/page/Kilkenny_FlowMeters" component={Kilkenny_FlowMeters} exact />
+            <Route path="/page/Kilkenny_Motors" component={Kilkenny_Motors} exact />
+            <Route path="/page/Kilkenny_Pumps" component={Kilkenny_Pumps} exact />
+            <Route path="/page/Waterford_All" component={Waterford_All} exact />
+            <Route path="/page/Waterford_FlowMeters" component={Waterford_FlowMeters} exact />
+            <Route path="/page/Waterford_Motors" component={Waterford_Motors} exact />
+            <Route path="/page/Waterford_Pumps" component={Waterford_Pumps} exact />
             {/* Equipment Data Inputs Pages */}
             <Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data_Inputs} exact />
             <Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data_Inputs} exact />
