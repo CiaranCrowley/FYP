@@ -16,7 +16,7 @@ const config = {
 }
 
 firebase.initializeApp(config)
-firebase.firestore()
+// firebase.firestore()
 const db = firebase.database()
 
 // EVERYTHING BELOW WILL BE REMOVED
