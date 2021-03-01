@@ -1,16 +1,25 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React, { useEffect } from 'react';
-import firebase from '../../../firebaseConfig' 
+import { IonButtons, IonCard, IonCardHeader, IonContent, IonHeader, IonInput, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useEffect, useState } from 'react';
+import firebase from '../../../firebaseConfig'
 
 const Carrick_All: React.FC = () => {
 
-	// Gets objects from Database and logs them to console
-	useEffect(() => {
-		const dataRef = firebase.database().ref("data")
-		dataRef.on("value", (snapshot) => {
-			console.log(snapshot.val())
-		})
-	}, [])
+	// const [dataList, setDataList] = useState([])
+
+	// Gets objects from Database and logs them to console (https://www.youtube.com/watch?v=v0TKYSkZ2tI)
+	// useEffect(() => {
+	// 	const dataRef = firebase.database().ref("data")
+	// 	dataRef.on("value", (snapshot) => {
+	// 		// console.log(snapshot.val())
+	// 		const data = snapshot.val()
+	// 		const dataArray : string[] = []
+	// 		for (let id in data) {
+	// 			dataArray.push(data[id])
+	// 		}
+	// 		console.log(dataArray)
+	// 		// setDataList(dataArray)
+	// 	})
+	// }, [])
 
 	return (
 		<IonPage>
@@ -25,9 +34,11 @@ const Carrick_All: React.FC = () => {
 			</IonHeader>
 
 			<IonContent fullscreen>
-
+				<IonCard>
+					{/* <IonCardHeader>{tagNo_val}, {cat_Val}, {contract_val}</IonCardHeader> */}
+				</IonCard>
 			</IonContent>
-			
+
 		</IonPage>
 	);
 };

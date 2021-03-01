@@ -1,7 +1,9 @@
 import firebase from "firebase/app"
 import "firebase/auth"
 import "firebase/database"
+import "firebase/firestore"
 import { toast } from  './toast'
+import { Link, useHistory  } from 'react-router-dom'
 
 const config = {
 	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -14,13 +16,15 @@ const config = {
 }
 
 firebase.initializeApp(config)
+firebase.firestore()
 const db = firebase.database()
 
+// EVERYTHING BELOW WILL BE REMOVED
 export async function loginUser(email: string, password: string) {
 	
 	try {
 		const res = await firebase.auth().signInWithEmailAndPassword(email, password)
-		console.log(res)
+		console.log(res) 
 		return true
 	} catch(error) {
 		toast(error.message, 4000)

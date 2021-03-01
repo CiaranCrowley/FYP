@@ -18,7 +18,7 @@ const Login: React.FC = () => {
 		const res = await loginUser(email, password)
 		if(res) {
 			toast("You have successfully logged in")
-			history.push('/page/Dashboard')
+			history.push('/page/Site_List')
 		}
 		setBusy(false)
   	}

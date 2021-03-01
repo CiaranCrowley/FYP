@@ -10,7 +10,7 @@ const Carrick_All: React.FC = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>All Carrick</IonTitle>
+					<IonTitle>All Waterford</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 

@@ -2,6 +2,8 @@ import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, Io
 import React, { useState } from 'react';
 import './styles.css';
 import { submitData } from "../../../firebaseConfig"
+import firebase from '../../../firebaseConfig'
+
 
 const Carrick_Equip_Data_Inputs: React.FC = () => {
 
@@ -25,6 +27,7 @@ const Carrick_Equip_Data_Inputs: React.FC = () => {
 	const [comments, setComments] = useState("")
 
 	function submit() {
+		
 		submitData(siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments)
 	}
 

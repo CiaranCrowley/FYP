@@ -15,7 +15,7 @@ const Register: React.FC = () => {
 
 	async function register() {
 		
-		setBusy(true)
+		// setBusy(true)
 		// Validation
 		if(password !== cpassword) {
 			return toast('Passwords do not match')
@@ -29,7 +29,7 @@ const Register: React.FC = () => {
 			toast('Registration successful')
 			history.push('/page/Login')
 		}
-		setBusy(false)
+		// setBusy(false)
 	}
 	
 	return (
