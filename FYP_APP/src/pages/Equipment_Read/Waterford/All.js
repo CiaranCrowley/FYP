@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import firebase from '../../../firebaseConfig';
 
 
-const Carrick_All = () => {
+const Waterford_All = () => {
 
 	const [dataList, setDataList] = useState([])
 	const [busy, setBusy] = useState(false)
@@ -78,4 +78,4 @@ const Carrick_All = () => {
 	);
 };
 
-export default Carrick_All;
+export default Waterford_All;
