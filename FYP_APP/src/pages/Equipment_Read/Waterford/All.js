@@ -1,15 +1,16 @@
-import { IonButtons, IonCard, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import firebase from '../../../firebaseConfig';
 
-const Kilkenny_All = () => {
+
+const Carrick_All = () => {
 
 	const [dataList, setDataList] = useState([])
 	const [busy, setBusy] = useState(false)
 
 	const ref = firebase.firestore().collection("Data")
-	const requiredRef = ref.where('siteName', '==', 'Kilkenny')
+	const requiredRef = ref.where('siteName', '==', 'Waterford')
 
 	// https://www.youtube.com/watch?v=3ZEz-iposj8
 	function getData() {
@@ -44,7 +45,7 @@ const Kilkenny_All = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>All Kilkenny</IonTitle>
+					<IonTitle>All Waterford</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
@@ -77,4 +78,4 @@ const Kilkenny_All = () => {
 	);
 };
 
-export default Kilkenny_All;
+export default Carrick_All;
