@@ -1,15 +1,15 @@
-import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import firebase from '../../../firebaseConfig';
 
-const Carrick_All = () => {
+const Kilkenny_All = () => {
 
 	const [dataList, setDataList] = useState([])
 	const [busy, setBusy] = useState(false)
 
 	const ref = firebase.firestore().collection("Data")
-	const requiredRef = ref.where('siteName', '==', 'Carrick-on-Suir')
+	const requiredRef = ref.where('siteName', '==', 'Kilkenny')
 
 	// https://www.youtube.com/watch?v=3ZEz-iposj8
 	function getData() {
@@ -77,4 +77,4 @@ const Carrick_All = () => {
 	);
 };
 
-export default Carrick_All;
+export default Kilkenny_All;
