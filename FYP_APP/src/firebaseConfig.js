@@ -15,8 +15,6 @@ const config = {
 }
 
 firebase.initializeApp(config)
-// firebase.firestore()
-const db = firebase.database()
 
 // EVERYTHING BELOW WILL BE REMOVED
 export async function loginUser(email, password) {
@@ -41,13 +39,5 @@ export async function registerUser(email, password) {
 		return false
 	}
 }
-
-// export async function submitData(siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments) {
-// 	const dataRef = db.ref("data")
-// 	const newDataRef = dataRef.push()
-// 	newDataRef.set({
-// 		siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments
-// 	})
-// }
 
 export default firebase;
