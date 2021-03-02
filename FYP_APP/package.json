@@ -17,6 +17,7 @@
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
     "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.4.0",
     "firebase": "^8.2.8",
     "ionicons": "^5.4.0",
     "react": "^17.0.1",

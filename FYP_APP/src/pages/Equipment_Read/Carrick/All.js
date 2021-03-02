@@ -1,23 +1,24 @@
-import { IonButtons, IonCard, IonCardHeader, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonList, IonLoading, IonMenuButton, IonPage, IonRadio, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCardHeader, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonList, IonLoading, IonMenuButton, IonPage, IonRadio, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import firebase from '../../../firebaseConfig';
+import { pricetag, book, home } from 'ionicons/icons'
 
 const Carrick_All = () => {
 
 	const [dataList, setDataList] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [busy, setBusy] = useState(false)
 
 	const ref = firebase.firestore().collection("Data");
 
 	function getData() {
-		setLoading(true);
+		setBusy(true);
 		ref.onSnapshot((querySnapshot) => {
 			const items = [];
 			querySnapshot.forEach((doc) => {
 				items.push(doc.data());
 			});
 			setDataList(items);
-			setLoading(false);
+			setBusy(false);
 		});
 	}
 
@@ -25,25 +26,13 @@ const Carrick_All = () => {
 		getData();
 	}, []);
 
-	if (loading) {
+	if (busy) {
 		return (
 			<IonPage>
-				<IonLoading isOpen={loading}></IonLoading>
+				<IonLoading isOpen={busy}></IonLoading>
 			</IonPage>
 		)
 	}
-
-	// Gets objects from Database and logs them to console (https://www.youtube.com/watch?v=v0TKYSkZ2tI)  MICHAEL BARCOES METHOD
-	// useEffect(() => {
-	// 	const dataRef = firebase.firestore().collection("Data")
-	// 	dataRef.get().then((snapshot) => {
-	// 		const data = snapshot.docs.map((doc) => ({
-	// 			id: doc.id,
-	// 			...doc.data(),
-	// 		}))
-	// 		setDataList(data)
-	// 	})
-	// }, [])
 
 	return (
 		<IonPage>
@@ -58,11 +47,20 @@ const Carrick_All = () => {
 			</IonHeader>
 
 			<IonContent fullscreen>
-				{dataList.map((data) => 
+				{dataList.map((data) =>
 					<IonCard key={data.id} /* routerLink={LINK}, data.id <= id of the piece of data on the card*/>
 						<IonGrid>
-							<IonRow>
-								<IonCol id="tagNo" size="12">{data.tagNo}</IonCol>
+							<IonRow class="ion-nowrap">
+								<IonCol size="0"><IonIcon icon={pricetag}></IonIcon></IonCol>
+								<IonCol size="12" offset='0.2'>Tag No: {data.tagNo}</IonCol>
+							</IonRow>
+							<IonRow class="ion-nowrap">
+							<IonCol size="0"><IonIcon icon={book}></IonIcon></IonCol>
+								<IonCol size="12" offset='0.2'>Category: {data.category}</IonCol>
+							</IonRow>
+							<IonRow class="ion-nowrap">
+							<IonCol size="0"><IonIcon icon={home}></IonIcon></IonCol>
+								<IonCol size="12" offset='0.2'>Site Name: {data.siteName}</IonCol>
 							</IonRow>
 						</IonGrid>
 					</IonCard>
