@@ -1,14 +1,15 @@
 import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { v4 as uuidv4 } from "uuid";
+import firebase from "../../../firebaseConfig";
 import './styles.css';
-import { submitData } from "../../../firebaseConfig"
-import firebase from '../../../firebaseConfig'
 
+const ref = firebase.firestore().collection("Data");
 
-const Carrick_Equip_Data_Inputs: React.FC = () => {
+const Kilkenny_Equip_Data_Inputs = () => {
 
 	// Equipment Details
-	const siteName: string = "Carrick-on-Suir"
+	const siteName = "Kilkenny"
 	const [category, setCategory] = useState("")
 	const [contractNo, setContractNo] = useState("")
 	const [tagNo, setTagNo] = useState("")
@@ -26,11 +27,11 @@ const Carrick_Equip_Data_Inputs: React.FC = () => {
 	// Commissioning Tests
 	const [comments, setComments] = useState("")
 
-	function submit() {
-		submitData(siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments)
+	function submit(newData) {
+		ref.doc(newData.id).set(newData).catch((err) => {
+			console.error(err);
+		});
 	}
-
-	// If category === motor, tagNo starts with 'M' || category === pump, tagNo starts with 'P' || category === Flow Meter, tagNo starts with 'FL'
 
 	return (
 		<IonPage>
@@ -41,37 +42,37 @@ const Carrick_Equip_Data_Inputs: React.FC = () => {
 						<IonMenuButton />
 					</IonButtons>
 					<IonTitle>Equipment Data</IonTitle>
-					<IonButton onClick={submit}>Submit</IonButton>
+					<IonButton onClick={() => submit({ siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</IonButton>
 				</IonToolbar>
 			</IonHeader>
 
 			<IonContent fullscreen>
+
 				<IonListHeader>Details</IonListHeader>
 				<IonList>
 					<IonItemGroup>
 						<IonItem>
-							<IonLabel>Site Name: Carrick-on-Suir</IonLabel>
+							<IonLabel>Site Name: Kilkenny</IonLabel>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Category:</IonLabel>
-							<IonSelect placeholder="Category" value={category} onIonChange={(e: any) => setCategory(e.target.value)}>
+							<IonSelect placeholder="Category" value={category} onIonChange={(e) => setCategory(e.target.value)}>
 								<IonSelectOption value="Motor">Motor</IonSelectOption>
 								<IonSelectOption value="Pump">Pump</IonSelectOption>
 								<IonSelectOption value="Flow Meter">Flow Meter</IonSelectOption>
-								<IonSelectOption value="Blank">Blank</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Contract No.:</IonLabel>
-							<IonInput placeholder="Contract No." value={contractNo} onIonChange={(e: any) => setContractNo(e.target.value)}></IonInput>
+							<IonInput placeholder="Contract No." value={contractNo} onIonChange={(e) => setContractNo(e.target.value)}></IonInput>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Tag No.:</IonLabel>
-							<IonInput placeholder="Tag No." value={tagNo} onIonChange={(e: any) => setTagNo(e.target.value)}></IonInput>
+							<IonInput placeholder="Tag No." value={tagNo} onIonChange={(e) => setTagNo(e.target.value)}></IonInput>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Location:</IonLabel>
-							<IonSelect placeholder="Location" value={location} onIonChange={(e: any) => setLocation(e.target.value)}>
+							<IonSelect placeholder="Location" value={location} onIonChange={(e) => setLocation(e.target.value)}>
 								<IonSelectOption value="Sludge">Sludge</IonSelectOption>
 								<IonSelectOption value="Treatment">Treatment</IonSelectOption>
 								<IonSelectOption value="Waste">Waste</IonSelectOption>
@@ -79,7 +80,7 @@ const Carrick_Equip_Data_Inputs: React.FC = () => {
 						</IonItem>
 						<IonItem>
 							<IonLabel>Manufacturer:</IonLabel>
-							<IonSelect placeholder="Manufacturer" value={manufacturer} onIonChange={(e: any) => setManufacturer(e.target.value)}>
+							<IonSelect placeholder="Manufacturer" value={manufacturer} onIonChange={(e) => setManufacturer(e.target.value)}>
 								<IonSelectOption value="Siemens">Siemens</IonSelectOption>
 								<IonSelectOption value="Philips">Philips</IonSelectOption>
 								<IonSelectOption value="Honda">Honda</IonSelectOption>
@@ -87,15 +88,15 @@ const Carrick_Equip_Data_Inputs: React.FC = () => {
 						</IonItem>
 						<IonItem>
 							<IonLabel>Serial No.:</IonLabel>
-							<IonInput placeholder="Serial No." value={serialNo} onIonChange={(e: any) => setSerialNo(e.target.value)}></IonInput>
+							<IonInput placeholder="Serial No." value={serialNo} onIonChange={(e) => setSerialNo(e.target.value)}></IonInput>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Voltage:</IonLabel>
-							<IonInput placeholder="Voltage" value={voltage} onIonChange={(e: any) => setVoltage(e.target.value)}></IonInput>
+							<IonInput placeholder="Voltage" value={voltage} onIonChange={(e) => setVoltage(e.target.value)}></IonInput>
 						</IonItem>
 						<IonItem>
 							<IonLabel>RPM:</IonLabel>
-							<IonInput placeholder="RPM" value={rpm} onIonChange={(e: any) => setRPM(e.target.value)}></IonInput>
+							<IonInput placeholder="RPM" value={rpm} onIonChange={(e) => setRPM(e.target.value)}></IonInput>
 						</IonItem>
 					</IonItemGroup>
 				</IonList>
@@ -105,39 +106,38 @@ const Carrick_Equip_Data_Inputs: React.FC = () => {
 					<IonItemGroup>
 						<IonItem>
 							<IonLabel>Secure</IonLabel>
-							<IonSelect placeholder="Secure" value={secure} onIonChange={(e: any) => setSecure(e.target.value)}>
+							<IonSelect placeholder="Secure" value={secure} onIonChange={(e) => setSecure(e.target.value)}>
 								<IonSelectOption value="Yes">Yes</IonSelectOption>
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Weatherproof</IonLabel>
-							<IonSelect placeholder="Weatherproof" value={weatherproof} onIonChange={(e: any) => setWeatherproof(e.target.value)}>
+							<IonSelect placeholder="Weatherproof" value={weatherproof} onIonChange={(e) => setWeatherproof(e.target.value)}>
 								<IonSelectOption value="Yes">Yes</IonSelectOption>
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Cable Marked</IonLabel>
-							<IonSelect placeholder="Cable Marked" value={cableMarked} onIonChange={(e: any) => setCableMarked(e.target.value)}>
+							<IonSelect placeholder="Cable Marked" value={cableMarked} onIonChange={(e) => setCableMarked(e.target.value)}>
 								<IonSelectOption value="Yes">Yes</IonSelectOption>
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Earthed</IonLabel>
-							<IonSelect placeholder="Earthed" value={earthed} onIonChange={(e: any) => setEarthed(e.target.value)}>
+							<IonSelect placeholder="Earthed" value={earthed} onIonChange={(e) => setEarthed(e.target.value)}>
 								<IonSelectOption value="Yes">Yes</IonSelectOption>
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
-						{/* Figure out how to do this */}
 						<IonItem>
 							<IonLabel>Signed For Electrical Installer</IonLabel>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Date</IonLabel>
-							<IonDatetime value={installationTestDate} onIonChange={(e: any) => setInstallationtestDate(e.target.value)}></IonDatetime>
+							<IonDatetime value={installationTestDate} onIonChange={(e) => setInstallationtestDate(e.target.value)}></IonDatetime>
 						</IonItem>
 					</IonItemGroup>
 				</IonList>
@@ -186,14 +186,15 @@ const Carrick_Equip_Data_Inputs: React.FC = () => {
 						</IonItem>
 						<IonItem>
 							<IonLabel>Comments</IonLabel>
-							<IonTextarea placeholder="Comments" value={comments} onIonChange={(e: any) => setComments(e.target.value)}></IonTextarea>
+							<IonTextarea placeholder="Comments" value={comments} onIonChange={(e) => setComments(e.target.value)}></IonTextarea>
 						</IonItem>
 					</IonItemGroup>
 				</IonList>
+
 			</IonContent>
-			
+
 		</IonPage>
 	);
 };
 
-export default Carrick_Equip_Data_Inputs;
+export default Kilkenny_Equip_Data_Inputs;

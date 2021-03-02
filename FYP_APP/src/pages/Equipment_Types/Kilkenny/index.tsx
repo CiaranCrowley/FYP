@@ -15,11 +15,15 @@ const Kilkenny_Equip_Types: React.FC = () => {
 			</IonHeader>
 
 			<IonContent fullscreen>
-				
+
+				<IonCard routerLink="/page/Kilkenny_Equip_Data">
+					<IonCardHeader>Add new Data</IonCardHeader>
+				</IonCard>
+
 				<IonCard routerLink="/page/Kilkenny_All">
 					<IonCardHeader>All Equipment Types</IonCardHeader>
 				</IonCard>
-				
+
 				<IonCard routerLink="/page/Kilkenny_Motors">
 					<IonCardHeader>Motors</IonCardHeader>
 				</IonCard>
@@ -33,7 +37,7 @@ const Kilkenny_Equip_Types: React.FC = () => {
 				</IonCard>
 
 			</IonContent>
-			
+
 		</IonPage>
 	);
 };

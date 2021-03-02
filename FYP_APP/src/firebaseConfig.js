@@ -2,8 +2,7 @@ import firebase from "firebase/app"
 import "firebase/auth"
 import "firebase/database"
 import "firebase/firestore"
-import { toast } from  './toast'
-import { Link, useHistory  } from 'react-router-dom'
+import { toast } from './toast'
 
 const config = {
 	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -20,7 +19,7 @@ firebase.initializeApp(config)
 const db = firebase.database()
 
 // EVERYTHING BELOW WILL BE REMOVED
-export async function loginUser(email: string, password: string) {
+export async function loginUser(email, password) {
 	
 	try {
 		const res = await firebase.auth().signInWithEmailAndPassword(email, password)
@@ -32,7 +31,7 @@ export async function loginUser(email: string, password: string) {
 	}
 }
 
-export async function registerUser(email: string, password: string) {
+export async function registerUser(email, password) {
 	try {
 		const res = await firebase.auth().createUserWithEmailAndPassword(email, password)
 		console.log(res)
@@ -43,12 +42,12 @@ export async function registerUser(email: string, password: string) {
 	}
 }
 
-export async function submitData(siteName: any, category: any, contractNo: any, tagNo: any, location: any, manufacturer: any, serialNo: any, voltage: any, rpm: any, secure: any, weatherproof: any, cableMarked: any, earthed: any, installationTestDate: any, comments: any) {
-	const dataRef = db.ref("data")
-	const newDataRef = dataRef.push()
-	newDataRef.set({
-		siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments
-	})
-}
+// export async function submitData(siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments) {
+// 	const dataRef = db.ref("data")
+// 	const newDataRef = dataRef.push()
+// 	newDataRef.set({
+// 		siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments
+// 	})
+// }
 
 export default firebase;

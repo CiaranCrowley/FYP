@@ -1,29 +1,45 @@
-import { IonButtons, IonCard, IonCardHeader, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonList, IonLoading, IonMenuButton, IonPage, IonRadio, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import firebase from '../../../firebaseConfig';
-import { pricetag, book, home } from 'ionicons/icons'
 
 const Carrick_All = () => {
 
-	const [dataList, setDataList] = useState([]);
+	const [dataList, setDataList] = useState([])
 	const [busy, setBusy] = useState(false)
 
-	const ref = firebase.firestore().collection("Data");
+	const ref = firebase.firestore().collection("Data")
+	// ref.orderBy("siteName").
 
+	// https://www.youtube.com/watch?v=3ZEz-iposj8
 	function getData() {
-		setBusy(true);
+		setBusy(true)
 		ref.onSnapshot((querySnapshot) => {
-			const items = [];
+			const items = []
 			querySnapshot.forEach((doc) => {
-				items.push(doc.data());
-			});
-			setDataList(items);
-			setBusy(false);
-		});
+				items.push(doc.data())
+			})
+			setDataList(items)
+			setBusy(false)
+		})
 	}
 
+	// useEffect(() => {
+	// 	const dataRef = firebase.firestore().collection("Data")
+	// 	dataRef.get().then((snapshot) => {
+	// 		const data = snapshot.docs.map((doc) => ({
+	// 			id:doc.id,
+	// 			...doc.data()
+	// 		}))
+	// 		// if(data.siteName === 'Carrick-on-Suir'){
+	// 		// 	setDataList(data)
+	// 		// }
+	// 		setDataList(data)
+	// 	})
+	// }, []);
+
 	useEffect(() => {
-		getData();
+		getData()
 	}, []);
 
 	if (busy) {
@@ -50,16 +66,20 @@ const Carrick_All = () => {
 				{dataList.map((data) =>
 					<IonCard key={data.id} /* routerLink={LINK}, data.id <= id of the piece of data on the card*/>
 						<IonGrid>
+							{/* <IonRow class="ion-nowrap">
+								<IonCol size="0"><IonIcon icon={pricetag}></IonIcon></IonCol>
+								<IonCol size="12" offset='0.2'>Tag No: {data.tagNo}</IonCol>
+							</IonRow> */}
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={pricetag}></IonIcon></IonCol>
 								<IonCol size="12" offset='0.2'>Tag No: {data.tagNo}</IonCol>
 							</IonRow>
 							<IonRow class="ion-nowrap">
-							<IonCol size="0"><IonIcon icon={book}></IonIcon></IonCol>
+								<IonCol size="0"><IonIcon icon={book}></IonIcon></IonCol>
 								<IonCol size="12" offset='0.2'>Category: {data.category}</IonCol>
 							</IonRow>
 							<IonRow class="ion-nowrap">
-							<IonCol size="0"><IonIcon icon={home}></IonIcon></IonCol>
+								<IonCol size="0"><IonIcon icon={home}></IonIcon></IonCol>
 								<IonCol size="12" offset='0.2'>Site Name: {data.siteName}</IonCol>
 							</IonRow>
 						</IonGrid>
