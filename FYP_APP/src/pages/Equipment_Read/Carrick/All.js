@@ -7,14 +7,18 @@ const Carrick_All = () => {
 
 	const [dataList, setDataList] = useState([])
 	const [busy, setBusy] = useState(false)
+	// const name = ['Carrick-on-Suir']
+	const searchName = ['Carrick-on-Suir']
 
 	const ref = firebase.firestore().collection("Data")
-	// ref.orderBy("siteName").
+	const db = firebase.firestore()
+	const siteRef = db.collection('Data')
+	const requiredRef = siteRef.where('siteName', '==', 'Carrick-on-Suir')
 
 	// https://www.youtube.com/watch?v=3ZEz-iposj8
 	function getData() {
 		setBusy(true)
-		ref.onSnapshot((querySnapshot) => {
+		requiredRef.onSnapshot((querySnapshot) => {
 			const items = []
 			querySnapshot.forEach((doc) => {
 				items.push(doc.data())
@@ -23,20 +27,6 @@ const Carrick_All = () => {
 			setBusy(false)
 		})
 	}
-
-	// useEffect(() => {
-	// 	const dataRef = firebase.firestore().collection("Data")
-	// 	dataRef.get().then((snapshot) => {
-	// 		const data = snapshot.docs.map((doc) => ({
-	// 			id:doc.id,
-	// 			...doc.data()
-	// 		}))
-	// 		// if(data.siteName === 'Carrick-on-Suir'){
-	// 		// 	setDataList(data)
-	// 		// }
-	// 		setDataList(data)
-	// 	})
-	// }, []);
 
 	useEffect(() => {
 		getData()
