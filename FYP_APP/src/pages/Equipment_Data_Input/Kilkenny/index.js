@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonGrid, IonRow, IonCol, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import firebase from "../../../firebaseConfig";
@@ -41,9 +41,16 @@ const Kilkenny_Equip_Data_Inputs = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>Equipment Data</IonTitle>
-					<IonButton onClick={() => submit({ siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</IonButton>
-				</IonToolbar>
+					<IonGrid>
+						<IonRow class="ion-nowrap">
+							<IonCol>
+								<IonTitle>Equipment Data</IonTitle>
+							</IonCol>
+							<IonCol size="12" offset='0.2'>
+								<IonButton onClick={() => submit({ siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</IonButton>
+							</IonCol>
+						</IonRow>
+					</IonGrid></IonToolbar>
 			</IonHeader>
 
 			<IonContent fullscreen>

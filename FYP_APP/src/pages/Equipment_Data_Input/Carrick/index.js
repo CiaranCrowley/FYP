@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonGrid, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar, IonRow, IonCol } from '@ionic/react';
 import React, { useState } from 'react';
 import firebase from '../../../firebaseConfig';
 import './styles.css';
@@ -43,9 +43,16 @@ const Carrick_Equip_Data_Inputs = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>Equipment Data</IonTitle>
-					<IonButton onClick={() => submit({ siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</IonButton>
-					{/* <IonButton onClick={submit}>Submit</IonButton> */}
+					<IonGrid>
+						<IonRow class="ion-nowrap">
+							<IonCol>
+								<IonTitle>Equipment Data</IonTitle>
+							</IonCol>
+							<IonCol size="12" offset='0.2'>
+								<IonButton onClick={() => submit({ siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</IonButton>
+							</IonCol>
+						</IonRow>
+					</IonGrid>
 				</IonToolbar>
 			</IonHeader>
 
