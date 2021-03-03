@@ -12,7 +12,7 @@ If you already have Ionic installed, please uninstall it using the first two com
 npm uninstall -g ionic
 npm install -g @ionic/cli
 cd 'Project Folder'/'App Folder' E.g. cd FYP/FYP_APP
-npm i bootstrap-icons
+npm i react-bootstrap-icons --save
 npm i uuid
 npm i firebase
 npm i @types/firebase --save-dev

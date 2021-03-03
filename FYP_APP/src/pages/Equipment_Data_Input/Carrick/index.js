@@ -27,6 +27,7 @@ const Carrick_Equip_Data_Inputs = () => {
 	// Commissioning Tests
 	const [comments, setComments] = useState("");
 
+	// Add new Data
 	function submit(newData) {
 		ref.doc(newData.id).set(newData).catch((err) => {
 			console.error(err);
