@@ -12,6 +12,7 @@ const Carrick_All = () => {
 	const ref = firebase.firestore().collection("Data")
 	const requiredRef = ref.where('siteName', '==', 'Carrick-on-Suir')
 
+
 	// https://www.youtube.com/watch?v=3ZEz-iposj8
 	function getData() {
 		setBusy(true)
@@ -61,7 +62,7 @@ const Carrick_All = () => {
 
 			<IonContent fullscreen>
 				{dataList.map((data) => (
-					<IonCard key={data.id} /* routerLink={LINK}, data.id <= id of the piece of data on the card*/>
+					<IonCard key={data.id} routerLink={`/page/Equip_Edit/${data.id}`}>
 						<IonGrid>
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={pricetag}></IonIcon></IonCol>

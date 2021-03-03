@@ -33,6 +33,8 @@ import Waterford_All from './pages/Equipment_Read/Waterford/All';
 import Waterford_FlowMeters from './pages/Equipment_Read/Waterford/FlowMeters';
 import Waterford_Motors from './pages/Equipment_Read/Waterford/Motors';
 import Waterford_Pumps from './pages/Equipment_Read/Waterford/Pumps';
+// Equipment Edit Page
+import Edit_Data from './pages/Equip_Data_Edit';
 // Epuipment Type Pages
 import Carrick_Equip_Types from './pages/Equipment_Types/Carrick';
 import Kilkenny_Equip_Types from './pages/Equipment_Types/Kilkenny';
@@ -73,6 +75,8 @@ const App: React.FC = () => {
 						<Route path="/page/Waterford_FlowMeters" component={Waterford_FlowMeters} exact />
 						<Route path="/page/Waterford_Motors" component={Waterford_Motors} exact />
 						<Route path="/page/Waterford_Pumps" component={Waterford_Pumps} exact />
+						{/* Equipment Edit Page */}
+						<Route path="/page/Equip_Edit/:id"><Edit_Data></Edit_Data></Route>
 						{/* Equipment Data Inputs Pages */}
 						<Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data_Inputs} exact />
 						<Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data_Inputs} exact />
