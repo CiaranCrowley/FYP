@@ -71,6 +71,10 @@ const Carrick_All = () => {
 								<IonCol size="1" offset='0.2'><a onClick={() => deleteData(data)}><Trash size={20}></Trash></a></IonCol>
 							</IonRow>
 							<IonRow class="ion-nowrap">
+								<IonCol size="0"><IonIcon icon={home}></IonIcon></IonCol>
+								<IonCol size="12" offset='0.2'>Contract No.: {data.contractNo}</IonCol>
+							</IonRow>
+							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={book}></IonIcon></IonCol>
 								<IonCol size="12" offset='0.2'>Category: {data.category}</IonCol>
 							</IonRow>

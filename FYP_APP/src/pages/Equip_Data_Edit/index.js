@@ -44,6 +44,12 @@ const Edit_Data = () => {
       });
 	}, [id]);
 
+   /* 
+   *
+   * https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+   * Continue using this. Move the button rather than moving dataList.map
+   *
+   */
 
    return (
       <IonPage>
