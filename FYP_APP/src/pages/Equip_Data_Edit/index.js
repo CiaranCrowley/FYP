@@ -1,9 +1,8 @@
-import { IonButton, IonButtons, IonGrid, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar, IonRow, IonCol } from '@ionic/react';
-import React, { useState, useEffect } from 'react';
-import firebase from '../../firebaseConfig';
-import { v4 as uuidv4 } from "uuid";
+import { IonButton, IonCol, IonContent, IonDatetime, IonGrid, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonPage, IonRow, IonSelect, IonSelectOption, IonTextarea } from '@ionic/react';
+import React, { useEffect, useState } from 'react';
+import { PencilSquare, Trash } from 'react-bootstrap-icons';
 import { useParams } from 'react-router';
-import { man } from 'ionicons/icons';
+import firebase from '../../firebaseConfig';
 
 const Edit_Data = () => {
 
@@ -28,16 +27,23 @@ const Edit_Data = () => {
 
    const { id } = useParams();
    const [dataList, setDataList] = useState([]);
-   // const [busy, setBusy] = useState(false);
-
    const ref = firebase.firestore().collection("Data");
-   // const dataRef = firebase.firestore().collection("Data").doc(id);
 
    function updateData(updatedData) {
       // setBusy();
       ref
          .doc(updatedData.id)
          .update(updatedData)
+         .catch((err) => {
+            console.error(err);
+         });
+   }
+
+   // Delete Data
+   function deleteData(deleteData) {
+      ref
+         .doc(deleteData.id)
+         .delete()
          .catch((err) => {
             console.error(err);
          });
@@ -54,7 +60,6 @@ const Edit_Data = () => {
    /* 
    *
    * https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
-   * Continue using this. Move the button rather than moving dataList.map
    *
    */
 
@@ -63,14 +68,26 @@ const Edit_Data = () => {
 
          <IonContent fullscreen>
             <IonList>
-               <IonListHeader>Details</IonListHeader>
+               <IonGrid>
+                  <IonRow class="ion-nowrap">
+                     <IonCol size="5">
+                        <IonListHeader>Details</IonListHeader>
+                     </IonCol>
+                     <IonCol>
+                        <IonButton onClick={() => updateData({
+                           siteName: siteName, category: category, contractNo: contractNo, tagNo: tagNo,
+                           location: location, manufacturer: manufacturer, serialNo: serialNo, voltage: voltage, rpm: rpm, secure: secure, weatherproof: weatherproof,
+                           cableMarked: cableMarked, earthed: earthed, installationTestDate: installationTestDate, comments: comments, id: id
+                        })}><PencilSquare size={25}></PencilSquare></IonButton>
+                     </IonCol>
+                     <IonCol>
+                        <IonButton onClick={() => deleteData({ id: id })}><Trash size={25}></Trash></IonButton>
+                     </IonCol>
+                  </IonRow>
+               </IonGrid>
                <IonItemGroup>
                   <IonItem>
                      <IonLabel>Site Name: {dataList?.siteName}</IonLabel>
-                     {/* <IonButton onClick={() => updateData({ siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</IonButton> */}
-                     <IonButton onClick={() => updateData({ siteName: siteName, category: category, contractNo: contractNo, tagNo: tagNo,
-                        location: location, manufacturer: manufacturer, serialNo: serialNo, voltage: voltage, rpm: rpm, secure: secure, weatherproof: weatherproof,
-                        cableMarked: cableMarked, earthed: earthed, installationTestDate: installationTestDate, comments: comments, id: id })}>Update</IonButton>
                   </IonItem>
                   <IonItem>
                      <IonLabel>Category:</IonLabel>
@@ -120,7 +137,7 @@ const Edit_Data = () => {
                </IonItemGroup>
             </IonList>
 
-            {/* <IonList>
+            <IonList>
                <IonListHeader>Installation Tests</IonListHeader>
                <IonItemGroup>
                   <IonItem>
@@ -208,7 +225,7 @@ const Edit_Data = () => {
                      <IonTextarea placeholder="Comments" value={comments} onIonChange={(e) => setComments(e.target.value)}></IonTextarea>
                   </IonItem>
                </IonItemGroup>
-            </IonList> */}
+            </IonList>
 
          </IonContent>
       </IonPage>

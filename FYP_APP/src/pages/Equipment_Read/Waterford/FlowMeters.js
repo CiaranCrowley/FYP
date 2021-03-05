@@ -2,9 +2,14 @@ import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, I
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import firebase from '../../../firebaseConfig';
-import { PencilSquare, Trash } from 'react-bootstrap-icons';
 
 const Waterford_FlowMeters = () => {
+
+	/*
+	*
+	* https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+	*
+	*/
 
 	const [dataList, setDataList] = useState([])
 	const [busy, setBusy] = useState(false)
@@ -13,7 +18,6 @@ const Waterford_FlowMeters = () => {
 	const requiredRef = ref.where('siteName', '==', 'Waterford')
 	const catgoryRef = requiredRef.where('category', '==', 'Flow Meter')
 
-	// https://www.youtube.com/watch?v=3ZEz-iposj8
 	function getData() {
 		setBusy(true)
 		catgoryRef.onSnapshot((querySnapshot) => {
@@ -24,16 +28,6 @@ const Waterford_FlowMeters = () => {
 			setDataList(items)
 			setBusy(false)
 		})
-	}
-
-	// Delete Data
-	function deleteData(data) {
-		ref
-			.doc(data.id)
-			.delete()
-			.catch((err) => {
-				console.error(err);
-			});
 	}
 
 	useEffect(() => {
@@ -62,13 +56,11 @@ const Waterford_FlowMeters = () => {
 
 			<IonContent fullscreen>
 				{dataList.map((data) =>
-					<IonCard key={data.id} /* routerLink={LINK}, data.id <= id of the piece of data on the card*/>
+					<IonCard key={data.id} routerLink={`/page/Equip_Edit/${data.id}`}>
 						<IonGrid>
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={pricetag}></IonIcon></IonCol>
 								<IonCol size="5" offset='0.2'>Tag No: {data.tagNo}</IonCol>
-								<IonCol size="1" offset='0.2'><a href="/page/Waterford_Equip_Data"><PencilSquare size={20}></PencilSquare></a></IonCol>
-								<IonCol size="1" offset='0.2'><a onClick={() => deleteData(data)}><Trash size={20}></Trash></a></IonCol>
 							</IonRow>
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={book}></IonIcon></IonCol>

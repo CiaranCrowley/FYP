@@ -1,10 +1,15 @@
-import { IonButtons, IonButton, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
-import { PencilSquare, Trash } from 'react-bootstrap-icons';
 import firebase from '../../../firebaseConfig';
 
 const Carrick_All = () => {
+
+	/*
+	*
+	* https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+	*
+	*/
 
 	const [dataList, setDataList] = useState([])
 	const [busy, setBusy] = useState(false)
@@ -12,8 +17,6 @@ const Carrick_All = () => {
 	const ref = firebase.firestore().collection("Data")
 	const requiredRef = ref.where('siteName', '==', 'Carrick-on-Suir')
 
-
-	// https://www.youtube.com/watch?v=3ZEz-iposj8
 	function getData() {
 		setBusy(true)
 		requiredRef.onSnapshot((querySnapshot) => {
@@ -24,16 +27,6 @@ const Carrick_All = () => {
 			setDataList(items)
 			setBusy(false)
 		})
-	}
-
-	// Delete Data
-	function deleteData(data) {
-		ref
-			.doc(data.id)
-			.delete()
-			.catch((err) => {
-				console.error(err);
-			});
 	}
 
 	useEffect(() => {
@@ -67,8 +60,6 @@ const Carrick_All = () => {
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={pricetag}></IonIcon></IonCol>
 								<IonCol size="5" offset='0.2'>Tag No: {data.tagNo}</IonCol>
-								<IonCol size="1" offset='0.2'><a href="/page/Carrick_Equip_Data"><PencilSquare size={20}></PencilSquare></a></IonCol>
-								<IonCol size="1" offset='0.2'><a onClick={() => deleteData(data)}><Trash size={20}></Trash></a></IonCol>
 							</IonRow>
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={home}></IonIcon></IonCol>

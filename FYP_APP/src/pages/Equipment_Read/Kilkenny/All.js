@@ -1,10 +1,15 @@
 import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
-import { PencilSquare, Trash } from 'react-bootstrap-icons';
 import firebase from '../../../firebaseConfig';
 
 const Kilkenny_All = () => {
+
+	/*
+	*
+	* https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+	*
+	*/
 
 	const [dataList, setDataList] = useState([])
 	const [busy, setBusy] = useState(false)
@@ -12,7 +17,6 @@ const Kilkenny_All = () => {
 	const ref = firebase.firestore().collection("Data")
 	const requiredRef = ref.where('siteName', '==', 'Kilkenny')
 
-	// https://www.youtube.com/watch?v=3ZEz-iposj8
 	function getData() {
 		setBusy(true)
 		requiredRef.onSnapshot((querySnapshot) => {
@@ -23,16 +27,6 @@ const Kilkenny_All = () => {
 			setDataList(items)
 			setBusy(false)
 		})
-	}
-
-	// Delete Data
-	function deleteData(data) {
-		ref
-			.doc(data.id)
-			.delete()
-			.catch((err) => {
-				console.error(err);
-			});
 	}
 
 	useEffect(() => {
@@ -61,13 +55,11 @@ const Kilkenny_All = () => {
 
 			<IonContent fullscreen>
 				{dataList.map((data) =>
-					<IonCard key={data.id} /* routerLink={LINK}, data.id <= id of the piece of data on the card*/>
+					<IonCard key={data.id} routerLink={`/page/Equip_Edit/${data.id}`}>
 						<IonGrid>
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={pricetag}></IonIcon></IonCol>
 								<IonCol size="5" offset='0.2'>Tag No: {data.tagNo}</IonCol>
-								<IonCol size="1" offset='0.2'><a href="/page/Kilkenny_Equip_Data"><PencilSquare size={20}></PencilSquare></a></IonCol>
-								<IonCol size="1" offset='0.2'><a onClick={() => deleteData(data)}><Trash size={20}></Trash></a></IonCol>
 							</IonRow>
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={book}></IonIcon></IonCol>
