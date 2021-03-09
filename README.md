@@ -28,7 +28,7 @@ npx cap sync  **Run this after each build to update any new native code
 
 ### In a Browser
 
-Runs the app in your default browser.  Add '--browser [browser name]' if you wish to run the app in a different browser
+Runs the app in your default browser.  Add '--browser [browser name]' to ionic serve if you wish to run the app in a different browser
 
 ```bash
 ionic serve
