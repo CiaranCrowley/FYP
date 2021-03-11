@@ -17,17 +17,6 @@ const config = {
 firebase.initializeApp(config)
 
 // EVERYTHING BELOW WILL BE REMOVED
-export async function loginUser(email, password) {
-	
-	try {
-		const res = await firebase.auth().signInWithEmailAndPassword(email, password)
-		console.log(res) 
-		return true
-	} catch(error) {
-		toast(error.message, 4000)
-		return false
-	}
-}
 
 export async function registerUser(email, password) {
 	try {
