@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonList, IonLoading, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonList, IonLoading, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { loginUser } from '../../firebaseConfig';
@@ -29,14 +29,13 @@ const Login: React.FC = () => {
 				<IonToolbar>
 					<IonButtons slot="start">
 					</IonButtons>
-					<IonTitle className="ion-text-center">Login Page</IonTitle>
+					<IonTitle className="ion-text-center">Login</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
 			<IonLoading message="Please wait..." duration={0} isOpen={busy} />
 
-			<IonContent fullscreen>
-				<IonContent className="ion-padding">
+			<IonContent className="ion-padding" fullscreen>
 
 					<div className="center-content">
 						<IonList>
@@ -51,7 +50,6 @@ const Login: React.FC = () => {
 						<p>If you're new here, please register an account to login <Link to="/page/Register">Register</Link></p>
 					</div>
 
-				</IonContent>
 			</IonContent>
 
 		</IonPage>

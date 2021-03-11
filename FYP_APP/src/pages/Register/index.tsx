@@ -14,24 +14,24 @@ const Register: React.FC = () => {
 	const history = useHistory();
 
 	async function register() {
-		
+
 		setBusy(true);
 		// Validation
-		if(password !== cpassword) {
+		if (password !== cpassword) {
 			return toast('Passwords do not match');
 		}
-		if(email === '' || password === '') {
+		if (email === '' || password === '') {
 			return toast('Username and password are required');
 		}
 
 		const res = await registerUser(email!, password!);
-		if(res) {
+		if (res) {
 			toast('Registration successful');
 			history.push('/page/Login');
 		}
 		setBusy(false);
 	}
-	
+
 	return (
 		<IonPage>
 			<IonHeader>
@@ -39,32 +39,29 @@ const Register: React.FC = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>Register</IonTitle>
+					<IonTitle className="ion-text-center">Register</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
 			<IonLoading message="Registering your details" duration={0} isOpen={busy} />
 
-			<IonContent fullscreen>
+			<IonContent className="ion-padding" fullscreen>
 
-				<IonList>
-					
-					<IonItem>
-						<IonInput placeholder="Email" type="email" required onIonChange={(e: any) => setEmail(e.target.value)}></IonInput>
-					</IonItem>
-
-					<IonItem>
-						<IonInput placeholder="Password" type="password" required onIonChange={(e: any) => setPassword(e.target.value)}></IonInput>
-					</IonItem>
-					
-					<IonItem>
-						<IonInput placeholder="Confirm Password" type="password" required onIonChange={(e: any) => setCPassword(e.target.value)}></IonInput>
-					</IonItem>
-				
-				</IonList>
-
-				<IonButton class="register-button" color="primary" expand="full" shape="round" onClick={register}>Register</IonButton>
-				<p>Already have an account? <Link to="/page/Login">Login</Link></p>
+				<div className="center-content">
+					<IonList>
+						<IonItem>
+							<IonInput placeholder="Email" type="email" required onIonChange={(e: any) => setEmail(e.target.value)}></IonInput>
+						</IonItem>
+						<IonItem>
+							<IonInput placeholder="Password" type="password" required onIonChange={(e: any) => setPassword(e.target.value)}></IonInput>
+						</IonItem>
+						<IonItem>
+							<IonInput placeholder="Confirm Password" type="password" required onIonChange={(e: any) => setCPassword(e.target.value)}></IonInput>
+						</IonItem>
+					</IonList>
+					<IonButton className="ion-margin-top" color="primary" expand="full" shape="round" onClick={register}>Register</IonButton>
+					<p>Already have an account? <Link to="/page/Login">Login</Link></p>
+				</div>
 
 			</IonContent>
 
