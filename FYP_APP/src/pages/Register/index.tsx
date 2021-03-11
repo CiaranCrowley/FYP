@@ -1,35 +1,35 @@
-import { IonButtons, IonContent, IonHeader, IonInput, IonButton, IonList, IonMenuButton, IonPage, IonItem, IonTitle, IonToolbar, IonLoading } from '@ionic/react'
-import './styles.css'
-import { Link, useHistory } from 'react-router-dom'
-import React, { useState } from "react"
-import { toast } from '../../toast'
-import { registerUser } from '../../firebaseConfig'
+import { IonButtons, IonContent, IonHeader, IonInput, IonButton, IonList, IonMenuButton, IonPage, IonItem, IonTitle, IonToolbar, IonLoading } from '@ionic/react';
+import './styles.css';
+import { Link, useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { toast } from '../../toast';
+import { registerUser } from '../../firebaseConfig';
 
 const Register: React.FC = () => {
 
-	const [busy, setBusy] = useState<boolean>(false)
-	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
-	const [cpassword, setCPassword] = useState('')
-	const history = useHistory()
+	const [busy, setBusy] = useState<boolean>(false);
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [cpassword, setCPassword] = useState('');
+	const history = useHistory();
 
 	async function register() {
 		
-		// setBusy(true)
+		setBusy(true);
 		// Validation
 		if(password !== cpassword) {
-			return toast('Passwords do not match')
+			return toast('Passwords do not match');
 		}
 		if(email === '' || password === '') {
-			return toast('Username and password are required')
+			return toast('Username and password are required');
 		}
 
-		const res = await registerUser(email!, password!)
+		const res = await registerUser(email!, password!);
 		if(res) {
-			toast('Registration successful')
-			history.push('/page/Login')
+			toast('Registration successful');
+			history.push('/page/Login');
 		}
-		// setBusy(false)
+		setBusy(false);
 	}
 	
 	return (

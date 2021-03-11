@@ -1,3 +1,0 @@
-Initial Firebase Import problem with first version of the app.
-
-Firebase Problem with package naming regime and incorrect OAuth credential (Should have been web based, not android based)

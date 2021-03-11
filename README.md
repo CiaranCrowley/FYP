@@ -44,7 +44,7 @@ npx cap open android
 
 ### In Xcode
 
-> NOTE:  I have no way of verifying proper functionality on IOS as I do not own any IOS or MacOS devices.
+> NOTE:  I have no way of verifying proper functionality on IOS as I do not own any IOS devices.
 
 ```bash
 npx cap open ios
