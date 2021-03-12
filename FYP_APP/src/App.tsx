@@ -75,6 +75,9 @@ const Carrick_Equip_Data_Inputs = lazy(() => import('./pages/Equipment_Data_Inpu
 const Kilkenny_Equip_Data_Inputs = lazy(() => import('./pages/Equipment_Data_Input/Kilkenny'));
 const Waterford_Equip_Data_Inputs = lazy(() => import('./pages/Equipment_Data_Input/Waterford'));
 
+// * New Pages: Refactoring the file structure & reducing overall size
+const Create_Data = lazy(() => import('./pages/Create_Data/create_data'));
+
 const App: React.FC = () => {
 	return (
 		<IonApp>
@@ -111,6 +114,10 @@ const App: React.FC = () => {
 							<Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data_Inputs} exact />
 							<Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data_Inputs} exact />
 							<Route path="/page/Waterford_Equip_Data" component={Waterford_Equip_Data_Inputs} exact />
+
+							{/* * New Pages: Refactoring the file structure & reducing overall size */}
+							<Route path="/page/Create_Data" component={Create_Data} exact />
+
 							<Redirect from="/" to="/page/Home" exact />
 						</IonRouterOutlet>
 					</IonSplitPane>
