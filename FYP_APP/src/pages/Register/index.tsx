@@ -41,7 +41,6 @@ const Register: React.FC = () => {
 			<IonHeader>
 				<IonToolbar>
 					<IonButtons slot="start">
-						<IonMenuButton />
 					</IonButtons>
 					<IonTitle className="ion-text-center">Register</IonTitle>
 				</IonToolbar>
