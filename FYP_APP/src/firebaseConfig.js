@@ -1,8 +1,7 @@
-import firebase from "firebase/app"
-import "firebase/auth"
-import "firebase/database"
-import "firebase/firestore"
-import { toast } from './toast'
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
+import "firebase/firestore";
 
 const config = {
 	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -14,19 +13,6 @@ const config = {
 	appId: process.env.REACT_APP_FIREBASE_APP_ID
 }
 
-firebase.initializeApp(config)
-
-// EVERYTHING BELOW WILL BE REMOVED
-
-export async function registerUser(email, password) {
-	try {
-		const res = await firebase.auth().createUserWithEmailAndPassword(email, password)
-		console.log(res)
-		return true
-	} catch(error) {
-		toast(error.message, 4000)
-		return false
-	}
-}
+firebase.initializeApp(config);
 
 export default firebase;

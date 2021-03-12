@@ -3,7 +3,7 @@ import './styles.css';
 import { Link, useHistory } from 'react-router-dom';
 import React, { useState } from "react";
 import { toast } from '../../toast';
-import { registerUser } from '../../firebaseConfig';
+import firebase from '../../firebaseConfig';
 
 const Register: React.FC = () => {
 
@@ -24,12 +24,16 @@ const Register: React.FC = () => {
 			return toast('Username and password are required');
 		}
 
-		const res = await registerUser(email!, password!);
-		if (res) {
+		try {
+			await firebase.auth().createUserWithEmailAndPassword(email, password);
 			toast('Registration successful');
 			history.push('/page/Login');
+			setBusy(false);
+			return true;
+		} catch (error) {
+			toast(error.message, 4000);
+			return false;
 		}
-		setBusy(false);
 	}
 
 	return (
