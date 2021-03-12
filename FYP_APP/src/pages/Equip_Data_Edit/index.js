@@ -30,7 +30,8 @@ const Edit_Data = () => {
    const ref = firebase.firestore().collection("Data");
 
    function updateData(updatedData) {
-      // setBusy();
+      // TODO: Add setBust()
+      //  setBusy();
       ref
          .doc(updatedData.id)
          .update(updatedData)
@@ -57,9 +58,9 @@ const Edit_Data = () => {
       });
    }, [id]);
 
-   /* 
+   /**
    *
-   * https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+   * * https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
    *
    */
 

@@ -1,12 +1,12 @@
-import { IonButton, IonButtons, IonGrid, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar, IonRow, IonCol } from '@ionic/react';
+import { IonButton, IonButtons, IonCol, IonContent, IonDatetime, IonGrid, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonMenuButton, IonPage, IonRow, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from "uuid";
 import firebase from '../../../firebaseConfig';
 import './styles.css';
-import { v4 as uuidv4 } from "uuid";
-
-const ref = firebase.firestore().collection("Data");
 
 const Carrick_Equip_Data_Inputs = () => {
+
+	const ref = firebase.firestore().collection("Data");
 
 	// Equipment Details
 	const siteName = "Carrick-on-Suir";
@@ -34,7 +34,7 @@ const Carrick_Equip_Data_Inputs = () => {
 		});
 	}
 
-	// If category === motor, tagNo starts with 'M' || category === pump, tagNo starts with 'P' || category === Flow Meter, tagNo starts with 'FL'
+	//TODO: If category === motor, tagNo starts with 'M' || category === pump, tagNo starts with 'P' || category === Flow Meter, tagNo starts with 'FL'
 
 	return (
 		<IonPage>
@@ -47,7 +47,7 @@ const Carrick_Equip_Data_Inputs = () => {
 					<IonGrid>
 						<IonRow class="ion-nowrap">
 							<IonCol>
-								<IonTitle>Equipment Data</IonTitle>
+								<IonTitle>Create</IonTitle>
 							</IonCol>
 							<IonCol size="12" offset='0.2'>
 								<IonButton onClick={() => submit({ siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</IonButton>

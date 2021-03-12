@@ -1,9 +1,9 @@
-import { IonButtons, IonContent, IonHeader, IonInput, IonButton, IonList, IonMenuButton, IonPage, IonItem, IonTitle, IonToolbar, IonLoading } from '@ionic/react';
-import './styles.css';
-import { Link, useHistory } from 'react-router-dom';
+import { IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonList, IonLoading, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState } from "react";
-import { toast } from '../../toast';
+import { Link, useHistory } from 'react-router-dom';
 import firebase from '../../firebaseConfig';
+import { toast } from '../../toast';
+import './styles.css';
 
 const Register: React.FC = () => {
 
