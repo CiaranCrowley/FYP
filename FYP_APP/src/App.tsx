@@ -76,7 +76,7 @@ const Kilkenny_Equip_Data_Inputs = lazy(() => import('./pages/Equipment_Data_Inp
 const Waterford_Equip_Data_Inputs = lazy(() => import('./pages/Equipment_Data_Input/Waterford'));
 
 // * New Pages: Refactoring the file structure & reducing overall size
-const Create_Data = lazy(() => import('./pages/Create_Data/create_data'));
+const Create_Data = lazy(() => import('./pages/Create_Data/Create_Data'));
 
 const App: React.FC = () => {
 	return (
@@ -109,7 +109,7 @@ const App: React.FC = () => {
 							<Route path="/page/Waterford_Motors" component={Waterford_Motors} exact />
 							<Route path="/page/Waterford_Pumps" component={Waterford_Pumps} exact />
 							{/* Equipment Edit Page */}
-							<Route path="/page/Equip_Edit/:id"><Edit_Data></Edit_Data></Route>
+							<Route path="/page/Equip_Edit/:id" component={Edit_Data} exact/>
 							{/* Equipment Data Inputs Pages */}
 							<Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data_Inputs} exact />
 							<Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data_Inputs} exact />

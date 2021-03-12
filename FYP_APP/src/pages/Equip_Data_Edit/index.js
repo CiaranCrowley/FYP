@@ -1,10 +1,14 @@
-import { IonButton, IonCol, IonContent, IonDatetime, IonGrid, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonPage, IonRow, IonSelect, IonSelectOption, IonTextarea } from '@ionic/react';
+import { IonButton, IonCol, IonContent, IonDatetime, IonGrid, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonLoading, IonPage, IonRow, IonSelect, IonSelectOption, IonTextarea } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import { PencilSquare, Trash } from 'react-bootstrap-icons';
 import { useParams } from 'react-router';
 import firebase from '../../firebaseConfig';
 
 const Edit_Data = () => {
+
+   /**
+   *        * https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+   */
 
    // Equipment Details
    const siteName = "Carrick-on-Suir";
@@ -28,16 +32,17 @@ const Edit_Data = () => {
    const { id } = useParams();
    const [dataList, setDataList] = useState([]);
    const ref = firebase.firestore().collection("Data");
+   const [busy, setBusy] = useState(false);
 
    function updateData(updatedData) {
-      // TODO: Add setBust()
-      //  setBusy();
+       setBusy(true);
       ref
          .doc(updatedData.id)
          .update(updatedData)
          .catch((err) => {
             console.error(err);
          });
+      setBusy(false);
    }
 
    // Delete Data
@@ -58,11 +63,13 @@ const Edit_Data = () => {
       });
    }, [id]);
 
-   /**
-   *
-   * * https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
-   *
-   */
+   if (busy) {
+      return (
+         <IonPage>
+            <IonLoading isOpen={busy}></IonLoading>
+         </IonPage>
+      );
+   }
 
    return (
       <IonPage>

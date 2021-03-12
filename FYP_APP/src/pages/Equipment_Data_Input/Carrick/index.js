@@ -34,7 +34,7 @@ const Carrick_Equip_Data_Inputs = () => {
 		});
 	}
 
-	//TODO: If category === motor, tagNo starts with 'M' || category === pump, tagNo starts with 'P' || category === Flow Meter, tagNo starts with 'FL'
+	// If category === motor, tagNo starts with 'M' || category === pump, tagNo starts with 'P' || category === Flow Meter, tagNo starts with 'FL'
 
 	return (
 		<IonPage>
