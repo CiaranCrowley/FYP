@@ -37,16 +37,6 @@ const Site_List: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				{/* <IonCard routerLink="/page/Carrick_Equip_Types">
-					<img alt="" src="https://i.imgur.com/iBVlQ4h.png" />
-					<IonCardHeader>
-						<IonCardTitle>Carrick-on-Suir</IonCardTitle>
-					</IonCardHeader>
-					<IonCardContent>
-						Water Treatment Site in Carrick-on-Suir
-					</IonCardContent>
-				</IonCard> */}
-
 				<IonCard routerLink={`/page/Equip_Types/${kilkenny}`}>
 					<img alt="" src="https://i.imgur.com/HSPaGNN.png" />
 					<IonCardHeader>
@@ -57,16 +47,6 @@ const Site_List: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				{/* <IonCard routerLink="/page/Kilkenny_Equip_Types">
-					<img alt="" src="https://i.imgur.com/HSPaGNN.png" />
-					<IonCardHeader>
-						<IonCardTitle>Kilkenny</IonCardTitle>
-					</IonCardHeader>
-					<IonCardContent>
-						Water Treatment site in Waterford
-					</IonCardContent>
-				</IonCard> */}
-
 				<IonCard routerLink={`/page/Equip_Types/${waterford}`}>
 					<img alt="" src="https://i.imgur.com/OA8JArQ.png" />
 					<IonCardHeader>
@@ -76,16 +56,6 @@ const Site_List: React.FC = () => {
 						Water treatment site in Kilkenny
 					</IonCardContent>
 				</IonCard>
-
-				{/* <IonCard routerLink="/page/Waterford_Equip_Types">
-					<img alt="" src="https://i.imgur.com/OA8JArQ.png" />
-					<IonCardHeader>
-						<IonCardTitle>Waterford</IonCardTitle>
-					</IonCardHeader>
-					<IonCardContent>
-						Water treatment site in Kilkenny
-					</IonCardContent>
-				</IonCard> */}
 
 			</IonContent>
 			
