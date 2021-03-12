@@ -1,34 +1,45 @@
 import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
-import firebase from '../../../firebaseConfig';
+import firebase from '../../firebaseConfig';
 
-const Carrick_All = () => {
+const Display_All_In_Site = () => {
 
 	/**
-	* https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+	*  ? What does this page need to do?
+	*  * This page will need to Read all of the data present on a site, much like All.js in the Equipment_Read sub folders
+	* 
+	*  ? How?
+	*  * Use useParams to get the Site Name which is then put into the filter.
 	*/
 
-	const [dataList, setDataList] = useState([])
-	const [busy, setBusy] = useState(false)
+	/**
+	* 	display data source:
+	* 	https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+	*/
 
-	const ref = firebase.firestore().collection("Data")
-	const requiredRef = ref.where('siteName', '==', 'Carrick-on-Suir')
+	const [dataList, setDataList] = useState([]);
+	const [busy, setBusy] = useState(false);
+
+	const ref = firebase.firestore().collection("Data");
+
+	// This line filters by Site Name
+	const requiredRef = ref.where('siteName', '==', 'Carrick-on-Suir');
 
 	function getData() {
-		setBusy(true)
+		setBusy(true);
 		requiredRef.onSnapshot((querySnapshot) => {
-			const items = []
+			const items = [];
 			querySnapshot.forEach((doc) => {
-				items.push(doc.data())
-			})
-			setDataList(items)
-			setBusy(false)
-		})
+				items.push(doc.data());
+			});
+			setDataList(items);
+			setBusy(false);
+		});
 	}
 
 	useEffect(() => {
-		getData()
+		getData();
 	}, []);
 
 	if (busy) {
@@ -36,22 +47,21 @@ const Carrick_All = () => {
 			<IonPage>
 				<IonLoading isOpen={busy}></IonLoading>
 			</IonPage>
-		)
+		);
 	}
 
 	return (
 		<IonPage>
-
 			<IonHeader>
 				<IonToolbar>
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>All Carrick</IonTitle>
+					<IonTitle>All Machines present in *Site Name*</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen>
+			<IonContent className="ion-padding" fullscreen>
 				{dataList.map((data) => (
 					<IonCard key={data.id} routerLink={`/page/Equip_Edit/${data.id}`}>
 						<IonGrid>
@@ -78,6 +88,6 @@ const Carrick_All = () => {
 
 		</IonPage>
 	);
-};
+}
 
-export default Carrick_All;
+export default Display_All_In_Site;

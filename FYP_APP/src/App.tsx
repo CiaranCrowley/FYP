@@ -52,7 +52,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Edit_Data = lazy(() => import('./pages/Equip_Data_Edit'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
-const Site_List = lazy(() => import('./pages/Site_List'));
+// const Site_List = lazy(() => import('./pages/Site_List'));
 // Epuipment Type Pages
 const Carrick_Equip_Types = lazy(() => import('./pages/Equipment_Types/Carrick'));
 const Kilkenny_Equip_Types = lazy(() => import('./pages/Equipment_Types/Kilkenny'));
@@ -76,7 +76,11 @@ const Kilkenny_Equip_Data_Inputs = lazy(() => import('./pages/Equipment_Data_Inp
 const Waterford_Equip_Data_Inputs = lazy(() => import('./pages/Equipment_Data_Input/Waterford'));
 
 // * New Pages: Refactoring the file structure & reducing overall size
-const Create_Data = lazy(() => import('./pages/Create_Data/Create_Data'));
+const Site_List = lazy(() => import('./pages/Site_List'));
+const Equip_Types = lazy(() => import('./pages/Equipment_Types/Equipment_Types'))
+const Display_All_In_Site = lazy(() => import('./pages/Display_Data/Display_All_In_Site'));
+
+const Create_Data = lazy(() => import('./pages/Create_Data/Create_Data')); // TODO: New Create Page.  Make other sites got to this page when clicking on add new data
 
 const App: React.FC = () => {
 	return (
@@ -109,13 +113,20 @@ const App: React.FC = () => {
 							<Route path="/page/Waterford_Motors" component={Waterford_Motors} exact />
 							<Route path="/page/Waterford_Pumps" component={Waterford_Pumps} exact />
 							{/* Equipment Edit Page */}
-							<Route path="/page/Equip_Edit/:id" component={Edit_Data} exact/>
+							<Route path="/page/Equip_Edit/:id" component={Edit_Data} exact />
 							{/* Equipment Data Inputs Pages */}
 							<Route path="/page/Carrick_Equip_Data" component={Carrick_Equip_Data_Inputs} exact />
 							<Route path="/page/Kilkenny_Equip_Data" component={Kilkenny_Equip_Data_Inputs} exact />
 							<Route path="/page/Waterford_Equip_Data" component={Waterford_Equip_Data_Inputs} exact />
 
-							{/* * New Pages: Refactoring the file structure & reducing overall size */}
+							{/* New Pages: Refactoring the file structure & reducing overall size */}
+							{/* This route allows the user to navigate from Site List to Equip_Types based on Site Name */}
+							<Route path="/page/Equip_Types/:siteName" component={Equip_Types} exact />
+
+							{/* This route allows users to navige from Equip_Types to the Display All page for any site using useParams */}
+							<Route path="/page/Display_All/:siteName" component={Display_All_In_Site} exact />
+							
+							{/* New Create Data Page */}
 							<Route path="/page/Create_Data" component={Create_Data} exact />
 
 							<Redirect from="/" to="/page/Home" exact />

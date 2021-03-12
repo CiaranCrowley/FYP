@@ -3,6 +3,17 @@ import './styles.css';
 
 const Site_List: React.FC = () => {
 
+	// ! Temporary
+	// TODO: Find a way around this.  Not good to have this hard coded
+	const carrick = "Carrick-on-Suir";
+	const kilkenny = "Kilkenny";
+	const waterford = "Waterford";
+
+	/**
+	 * 	? What does this page need to do?
+	 * 	* It needs to display some info on each Site and navige to the Equipment_Types display for each site
+	 */
+
 	return (
 		<IonPage>
 			<IonHeader>
@@ -14,9 +25,9 @@ const Site_List: React.FC = () => {
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen>
+			<IonContent className="ion-padding" fullscreen>
 
-				<IonCard routerLink="/page/Carrick_Equip_Types">
+				<IonCard routerLink={`/page/Equip_Types/${carrick}`} >
 					<img alt="" src="https://i.imgur.com/iBVlQ4h.png" />
 					<IonCardHeader>
 						<IonCardTitle>Carrick-on-Suir</IonCardTitle>
@@ -26,7 +37,17 @@ const Site_List: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				<IonCard routerLink="/page/Kilkenny_Equip_Types">
+				{/* <IonCard routerLink="/page/Carrick_Equip_Types">
+					<img alt="" src="https://i.imgur.com/iBVlQ4h.png" />
+					<IonCardHeader>
+						<IonCardTitle>Carrick-on-Suir</IonCardTitle>
+					</IonCardHeader>
+					<IonCardContent>
+						Water Treatment Site in Carrick-on-Suir
+					</IonCardContent>
+				</IonCard> */}
+
+				<IonCard routerLink={`/page/Equip_Types/${kilkenny}`}>
 					<img alt="" src="https://i.imgur.com/HSPaGNN.png" />
 					<IonCardHeader>
 						<IonCardTitle>Kilkenny</IonCardTitle>
@@ -36,7 +57,17 @@ const Site_List: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				<IonCard routerLink="/page/Waterford_Equip_Types">
+				{/* <IonCard routerLink="/page/Kilkenny_Equip_Types">
+					<img alt="" src="https://i.imgur.com/HSPaGNN.png" />
+					<IonCardHeader>
+						<IonCardTitle>Kilkenny</IonCardTitle>
+					</IonCardHeader>
+					<IonCardContent>
+						Water Treatment site in Waterford
+					</IonCardContent>
+				</IonCard> */}
+
+				<IonCard routerLink={`/page/Equip_Types/${waterford}`}>
 					<img alt="" src="https://i.imgur.com/OA8JArQ.png" />
 					<IonCardHeader>
 						<IonCardTitle>Waterford</IonCardTitle>
@@ -45,6 +76,16 @@ const Site_List: React.FC = () => {
 						Water treatment site in Kilkenny
 					</IonCardContent>
 				</IonCard>
+
+				{/* <IonCard routerLink="/page/Waterford_Equip_Types">
+					<img alt="" src="https://i.imgur.com/OA8JArQ.png" />
+					<IonCardHeader>
+						<IonCardTitle>Waterford</IonCardTitle>
+					</IonCardHeader>
+					<IonCardContent>
+						Water treatment site in Kilkenny
+					</IonCardContent>
+				</IonCard> */}
 
 			</IonContent>
 			
