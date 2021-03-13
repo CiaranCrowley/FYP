@@ -1,34 +1,45 @@
 import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
-import firebase from '../../../firebaseConfig';
+import { useParams } from 'react-router';
+import firebase from '../../firebaseConfig';
+import { Site_Name } from '../Equipment_Types/Equipment_Types';
 
-const Carrick_All = () => {
+const Display_Data_In_Site = () => {
 
 	/**
-	* https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+	*  ? What does this page need to do?
+	*  * This page will need to Read all of the data present on a site and return the data corresponding to the site and Equipment Type
+	* 
+	*  ? How?
+	*  * With useParams, take the Site Name and Equipment Type and filter by those.
 	*/
 
-	const [dataList, setDataList] = useState([])
-	const [busy, setBusy] = useState(false)
+	const [dataList, setDataList] = useState([]);
+	const [busy, setBusy] = useState(false);
+	const ref = firebase.firestore().collection("Data");
+	const { equipType } = useParams();
+	const requiredRef = ref.where('siteName', '==', Site_Name);
+	const categoryRef = requiredRef.where('category', '==', equipType);
 
-	const ref = firebase.firestore().collection("Data")
-	const requiredRef = ref.where('siteName', '==', 'Carrick-on-Suir')
-
+	/**
+	* 	Gets Data:
+	* 	https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+	*/
 	function getData() {
-		setBusy(true)
-		requiredRef.onSnapshot((querySnapshot) => {
-			const items = []
+		setBusy(true);
+		categoryRef.onSnapshot((querySnapshot) => {
+			const items = [];
 			querySnapshot.forEach((doc) => {
-				items.push(doc.data())
-			})
-			setDataList(items)
-			setBusy(false)
-		})
+				items.push(doc.data());
+			});
+			setDataList(items);
+			setBusy(false);
+		});
 	}
 
 	useEffect(() => {
-		getData()
+		getData();
 	}, []);
 
 	if (busy) {
@@ -36,22 +47,21 @@ const Carrick_All = () => {
 			<IonPage>
 				<IonLoading isOpen={busy}></IonLoading>
 			</IonPage>
-		)
+		);
 	}
 
 	return (
 		<IonPage>
-
 			<IonHeader>
 				<IonToolbar>
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>All Carrick</IonTitle>
+					<IonTitle>{equipType}s present in {Site_Name}</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen>
+			<IonContent className="ion-padding" fullscreen>
 				{dataList.map((data) => (
 					<IonCard key={data.id} routerLink={`/page/Equip_Edit/${data.id}`}>
 						<IonGrid>
@@ -78,6 +88,6 @@ const Carrick_All = () => {
 
 		</IonPage>
 	);
-};
+}
 
-export default Carrick_All;
+export default Display_Data_In_Site;

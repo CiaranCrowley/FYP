@@ -6,7 +6,7 @@
 
 First, ensure that Node.js is installed and check that its version is above 10 with ```node -v```.
 If you already have Ionic installed, please uninstall it using the first two commands below.  
-** = Explaination
+> ** = Explaination  
 
 > Please ensure that you have Node.js instaled and that your npm version is at least 6.14.10
 

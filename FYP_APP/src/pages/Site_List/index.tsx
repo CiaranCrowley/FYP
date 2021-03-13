@@ -6,7 +6,7 @@ const Site_List: React.FC = () => {
 	// ! Temporary
 	// TODO: Find a way around this.  Not good to have this hard coded
 	const carrick = "Carrick-on-Suir";
-	const kilkenny = "Kilkenny";
+	const Kilkenny = "Kilkenny";
 	const waterford = "Waterford";
 
 	/**
@@ -37,7 +37,7 @@ const Site_List: React.FC = () => {
 					</IonCardContent>
 				</IonCard>
 
-				<IonCard routerLink={`/page/Equip_Types/${kilkenny}`}>
+				<IonCard routerLink={`/page/Equip_Types/${Kilkenny}`}>
 					<img alt="" src="https://i.imgur.com/HSPaGNN.png" />
 					<IonCardHeader>
 						<IonCardTitle>Kilkenny</IonCardTitle>
