@@ -53,10 +53,12 @@ const Edit_Data = lazy(() => import('./pages/Equip_Data_Edit'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 // const Site_List = lazy(() => import('./pages/Site_List'));
+
 // Epuipment Type Pages
-const Carrick_Equip_Types = lazy(() => import('./pages/Equipment_Types/Carrick'));
-const Kilkenny_Equip_Types = lazy(() => import('./pages/Equipment_Types/Kilkenny'));
-const Waterford_Equip_Types = lazy(() => import('./pages/Equipment_Types/Waterford'));
+// const Carrick_Equip_Types = lazy(() => import('./pages/Equipment_Types/Carrick'));
+// const Kilkenny_Equip_Types = lazy(() => import('./pages/Equipment_Types/Kilkenny'));
+// const Waterford_Equip_Types = lazy(() => import('./pages/Equipment_Types/Waterford'));
+
 // Equipment Read Pages
 const Carrick_All = lazy(() => import('./pages/Equipment_Read/Carrick/All'));
 const Carrick_FlowMeters = lazy(() => import('./pages/Equipment_Read/Carrick/FlowMeters'));
@@ -95,10 +97,7 @@ const App: React.FC = () => {
 							<Route path="/page/Login" component={Login} exact />
 							<Route path="/page/Register" component={Register} exact />
 							<Route path="/page/Site_List" component={Site_List} exact />
-							{/* Equipment Type Pages Links */}
-							<Route path="/page/Carrick_Equip_Types" component={Carrick_Equip_Types} exact />
-							<Route path="/page/Kilkenny_Equip_types" component={Kilkenny_Equip_Types} exact />
-							<Route path="/page/Waterford_Equip_Types" component={Waterford_Equip_Types} exact />
+
 							{/* Equipment Read Pages */}
 							<Route path="/page/Carrick_All" component={Carrick_All} exact />
 							<Route path="/page/Carrick_FlowMeters" component={Carrick_FlowMeters} exact />

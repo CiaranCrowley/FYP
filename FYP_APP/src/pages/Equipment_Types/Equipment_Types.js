@@ -2,6 +2,8 @@ import { IonButtons, IonCard, IonCardHeader, IonContent, IonHeader, IonMenuButto
 import React from 'react';
 import { useParams } from 'react-router';
 
+export var Site_Name;
+
 const Equipment_Types = () => {
 
    // ! Temporary
@@ -16,7 +18,7 @@ const Equipment_Types = () => {
     *    * to the page where each entry of that equipment type, located in that site, is displayed.
     * 
     *    ? How?
-    *    * Get Site Name with useParams and store it in a variable.  Then using if statements, or a switch, navigate to the display pages.
+    *    * Get Site Name with useParams and store it in a variable (Maybe export it?).  Then using if statements, or a switch, navigate to the display pages.
     *    * EXAMPLE:
     *    *        if (siteName from useParams === carrick) {
     *    *           then the siteName in the routerLinks below are = to carrick
@@ -24,7 +26,10 @@ const Equipment_Types = () => {
     */
 
    const { siteName } = useParams();
+   Site_Name = siteName; // Applies siteName to the global variable Site_Name
 
+
+   
    return (
       <IonPage>
          <IonHeader>
@@ -38,7 +43,7 @@ const Equipment_Types = () => {
 
          <IonContent className="ion-padding" fullscreen>
 
-            <IonCard routerLink="/page/Carrick_Equip_Data">
+            <IonCard routerLink="/page/Create_Data">
                <IonCardHeader>Add new Data</IonCardHeader>
             </IonCard>
 
