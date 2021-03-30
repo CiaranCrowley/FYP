@@ -50,7 +50,7 @@ const Login: React.FC = () => {
 						</IonItem>
 					</IonList>
 					<IonButton className="ion-margin-top" color="primary" expand="full" shape="round" onClick={login}>Login</IonButton>
-					<p>If you're new here, please register an account to login <Link to="/page/Register">Register</Link></p>
+					<p>If you're new here, please register an account to login. <Link to="/page/Register">Register</Link></p>
 				</div>
 
 			</IonContent>
