@@ -17,8 +17,8 @@ const Home: React.FC = () => {
 
 			<IonContent fullscreen>
 
-				<IonButton class="login-button-col" color="primary" expand="full" shape="round" routerLink="/page/Login">Login</IonButton>
-				<IonButton class="register-button-col" color="secondary" expand="full" shape="round" routerLink="/page/Register">Register</IonButton>
+				<IonButton class="login-button" color="primary" expand="full" shape="round" routerLink="/page/Login">Login</IonButton>
+				<IonButton class="register-button" color="secondary" expand="full" shape="round" routerLink="/page/Register">Register</IonButton>
 
 			</IonContent>
 
