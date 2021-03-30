@@ -11,7 +11,7 @@ const Edit_Data = () => {
 	*/
 
 	// Equipment Details
-	const siteName = "Carrick-on-Suir";
+	const [siteName, setSiteName] = useState("");
 	const [category, setCategory] = useState("");
 	const [contractNo, setContractNo] = useState("");
 	const [tagNo, setTagNo] = useState("");
@@ -19,7 +19,7 @@ const Edit_Data = () => {
 	const [manufacturer, setManufacturer] = useState("");
 	const [serialNo, setSerialNo] = useState("");
 	const [voltage, setVoltage] = useState("");
-	const [rpm, setRPM] = useState("")
+	const [rpm, setRPM] = useState("");
 	// Equipment Installation Tests
 	const [secure, setSecure] = useState("");
 	const [weatherproof, setWeatherproof] = useState("");
@@ -34,15 +34,33 @@ const Edit_Data = () => {
 	const ref = firebase.firestore().collection("Data");
 	const [busy, setBusy] = useState(false);
 
+	function getData() {
+		setBusy(true);
+		const dataRef = firebase.firestore().collection("Data").doc(id);
+		dataRef.get(id).then(doc => {
+			const data = { id: doc.id, ...doc.data() }
+			setDataList(data);
+		});
+		setBusy(false);
+	}
+
 	function updateData(updatedData) {
 		setBusy(true);
+		// * The following 6 lines for checking for empty fields is taken from MY stackoverflow question here: https://stackoverflow.com/questions/66872517/react-updating-one-piece-of-data-in-a-firestore-document-results-in-all-other-d
+		let updatedFields = {};
+		Object.keys(updatedData).forEach((field) => {
+			if (updatedData[field] && updatedData[field].length > 0) {
+				updatedFields[field] = updatedData[field];
+			}
+		});
 		ref
 			.doc(updatedData.id)
-			.update(updatedData)
+			.update(updatedFields)
+			.then(() => setBusy(false))
 			.catch((err) => {
 				console.error(err);
+				setBusy(false);
 			});
-		setBusy(false);
 	}
 
 	// Delete Data
@@ -56,12 +74,8 @@ const Edit_Data = () => {
 	}
 
 	useEffect(() => {
-		const dataRef = firebase.firestore().collection("Data").doc(id);
-		dataRef.get(id).then(doc => {
-			const data = { id: doc.id, ...doc.data() }
-			setDataList(data);
-		});
-	}, [id]);
+		getData();
+	}, []);
 
 	if (busy) {
 		return (
@@ -86,16 +100,21 @@ const Edit_Data = () => {
 									siteName: siteName, category: category, contractNo: contractNo, tagNo: tagNo,
 									location: location, manufacturer: manufacturer, serialNo: serialNo, voltage: voltage, rpm: rpm, secure: secure, weatherproof: weatherproof,
 									cableMarked: cableMarked, earthed: earthed, installationTestDate: installationTestDate, comments: comments, id: id
-								})}><PencilSquare size={25}></PencilSquare></IonButton>
+								})}>Update<PencilSquare size={25}></PencilSquare></IonButton>
 							</IonCol>
 							<IonCol>
-								<IonButton onClick={() => deleteData({ id: id })}><Trash size={25}></Trash></IonButton>
+								<IonButton onClick={() => deleteData({ id: id })}>Detele<Trash size={25}></Trash></IonButton>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
 					<IonItemGroup>
 						<IonItem>
-							<IonLabel>Site Name: {dataList?.siteName}</IonLabel>
+							<IonLabel>Site Name:</IonLabel>
+							<IonSelect placeholder={dataList?.siteName} value={siteName} onIonChange={(e) => setSiteName(e.target.value)}>
+								<IonSelectOption value="Carrick-on-Suir">Carrick-on-Suir</IonSelectOption>
+								<IonSelectOption value="Kilkenny">Kilkenny</IonSelectOption>
+								<IonSelectOption value="Waterford">Waterford</IonSelectOption>
+							</IonSelect>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Category:</IonLabel>
@@ -114,6 +133,7 @@ const Edit_Data = () => {
 							<IonLabel>Tag No.:</IonLabel>
 							<IonInput placeholder={dataList?.tagNo} value={tagNo} onIonChange={(e) => setTagNo(e.target.value)}></IonInput>
 						</IonItem>
+
 						<IonItem>
 							<IonLabel>Location:</IonLabel>
 							<IonSelect placeholder={dataList?.location} value={location} onIonChange={(e) => setLocation(e.target.value)}>
