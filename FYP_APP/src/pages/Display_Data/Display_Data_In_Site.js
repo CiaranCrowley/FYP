@@ -1,9 +1,8 @@
 import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 import firebase from '../../firebaseConfig';
-import { Site_Name } from '../Equipment_Types/Equipment_Types';
+import { Equip_Type, Site_Name } from '../Equipment_Types/Equipment_Types';
 
 const Display_Data_In_Site = () => {
 
@@ -18,9 +17,8 @@ const Display_Data_In_Site = () => {
 	const [dataList, setDataList] = useState([]);
 	const [busy, setBusy] = useState(false);
 	const ref = firebase.firestore().collection("Data");
-	const { equipType } = useParams();
 	const requiredRef = ref.where('siteName', '==', Site_Name);
-	const categoryRef = requiredRef.where('category', '==', equipType);
+	const categoryRef = requiredRef.where('category', '==', Equip_Type);
 
 	/**
 	* 	Gets Data:
@@ -57,7 +55,7 @@ const Display_Data_In_Site = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>{equipType}s present in {Site_Name}</IonTitle>
+					<IonTitle>{Equip_Type}s present in {Site_Name}</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 

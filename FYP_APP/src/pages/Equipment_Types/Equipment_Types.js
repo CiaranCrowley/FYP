@@ -4,7 +4,7 @@ import { ArrowLeft } from 'react-bootstrap-icons';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
 
-export var Site_Name;
+export var Site_Name, Equip_Type;
 
 const Equipment_Types = () => {
 
@@ -48,6 +48,18 @@ const Equipment_Types = () => {
 		history.push('/page/Site_List');
 	}
 
+	function motorFilter() {
+		Equip_Type = motor_data;
+	}
+
+	function flow_MeterFilter() {
+		Equip_Type = flow_meter_data;
+	}
+
+	function pumpFilter() {
+		Equip_Type = pump_data;
+	}
+
 	return (
 		<IonPage>
 			<IonHeader>
@@ -79,15 +91,15 @@ const Equipment_Types = () => {
 				</IonCard>
 
 				{/* The following cards only navigate to the pages dedicated to each equip type */}
-				<IonCard routerLink={`/page/Display_Data/${flow_meter_data}`}>
+				<IonCard routerLink={`/page/Display_Data/${flow_meter_data}`} onClick={flow_MeterFilter}>
 					<IonCardHeader>View Flow Meters</IonCardHeader>
 				</IonCard>
 
-				<IonCard routerLink={`/page/Display_Data/${motor_data}`}>
+				<IonCard routerLink={`/page/Display_Data/${motor_data}`} onClick={motorFilter}>
 					<IonCardHeader>View Motors</IonCardHeader>
 				</IonCard>
 
-				<IonCard routerLink={`/page/Display_Data/${pump_data}`}>
+				<IonCard routerLink={`/page/Display_Data/${pump_data}`} onClick={pumpFilter}>
 					<IonCardHeader>View Pumps</IonCardHeader>
 				</IonCard>
 
