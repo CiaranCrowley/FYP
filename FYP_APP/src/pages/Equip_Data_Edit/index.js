@@ -1,7 +1,11 @@
-import { IonButton, IonCol, IonContent, IonDatetime, IonGrid, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonListHeader, IonLoading, IonPage, IonRow, IonSelect, IonSelectOption, IonTextarea } from '@ionic/react';
+import {
+	IonAlert, IonButton, IonButtons, IonCol, IonContent, IonDatetime, IonGrid, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList,
+	IonListHeader, IonLoading, IonMenuButton, IonPage, IonRow, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar
+} from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import { PencilSquare, Trash } from 'react-bootstrap-icons';
+import { ArrowLeft, PencilSquare, Trash } from 'react-bootstrap-icons';
 import { useParams } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import firebase from '../../firebaseConfig';
 
 const Edit_Data = () => {
@@ -33,7 +37,11 @@ const Edit_Data = () => {
 	const [dataList, setDataList] = useState([]);
 	const ref = firebase.firestore().collection("Data");
 	const [busy, setBusy] = useState(false);
+	const [updateAlert, setUpdateAlert] = useState(false);
+	const [deleteAlert, setDeleteAlert] = useState(false);
+	const history = useHistory();
 
+	// Get Data
 	function getData() {
 		setBusy(true);
 		const dataRef = firebase.firestore().collection("Data").doc(id);
@@ -44,9 +52,13 @@ const Edit_Data = () => {
 		setBusy(false);
 	}
 
+	// Update Data
 	function updateData(updatedData) {
 		setBusy(true);
-		// * The following 6 lines for checking for empty fields is taken from MY stackoverflow question here: https://stackoverflow.com/questions/66872517/react-updating-one-piece-of-data-in-a-firestore-document-results-in-all-other-d
+		/**
+		 *		* The following 6 lines for checking for empty fields is taken from MY stackoverflow question here:
+		 *    * https://stackoverflow.com/questions/66872517/react-updating-one-piece-of-data-in-a-firestore-document-results-in-all-other-d
+		 */
 		let updatedFields = {};
 		Object.keys(updatedData).forEach((field) => {
 			if (updatedData[field] && updatedData[field].length > 0) {
@@ -61,6 +73,7 @@ const Edit_Data = () => {
 				console.error(err);
 				setBusy(false);
 			});
+		history.push('/page/Site_List');
 	}
 
 	// Delete Data
@@ -71,6 +84,12 @@ const Edit_Data = () => {
 			.catch((err) => {
 				console.error(err);
 			});
+		history.push('/page/Site_List');
+	}
+
+	// Back Button
+	function back() {
+		history.push('/page/Display_All_In_Site');
 	}
 
 	useEffect(() => {
@@ -87,6 +106,60 @@ const Edit_Data = () => {
 
 	return (
 		<IonPage>
+			<IonHeader>
+				<IonToolbar>
+					<IonButtons slot="start">
+						<IonMenuButton />
+					</IonButtons>
+					<IonGrid>
+						<IonRow>
+							<IonCol size="3">
+								<IonButton onClick={back}><ArrowLeft size={25}></ArrowLeft></IonButton>
+							</IonCol>
+							<IonCol size="5">
+								<IonTitle>View, Edit, or Delete Data</IonTitle>
+							</IonCol>
+							<IonCol>
+								<IonButton onClick={() => setUpdateAlert(true)}><PencilSquare size={25}></PencilSquare></IonButton>
+								<IonAlert isOpen={updateAlert} onDidDismiss={() => setUpdateAlert(false)} header="Alert"
+									message={'<strong>Are you sure you want to update this data?</strong>'}
+									buttons={[
+										{
+											text: 'Cancel',
+											role: 'cancel'
+										},
+										{
+											text: 'Update',
+											handler: () => updateData({
+												siteName: siteName, category: category, contractNo: contractNo, tagNo: tagNo,
+												location: location, manufacturer: manufacturer, serialNo: serialNo, voltage: voltage, rpm: rpm, secure: secure,
+												weatherproof: weatherproof, cableMarked: cableMarked, earthed: earthed,
+												installationTestDate: installationTestDate, comments: comments, id: id
+											})
+										}
+									]}
+								/>
+							</IonCol>
+							<IonCol>
+								<IonButton onClick={() => setDeleteAlert(true)}><Trash size={25}></Trash></IonButton>
+								<IonAlert isOpen={deleteAlert} onDidDismiss={() => setDeleteAlert(false)} header="Alert"
+									message={'<strong>Are you sure you want to delete this data?. <p>It cannot be undone!!!</p></strong>'}
+									buttons={[
+										{
+											text: 'Cancel',
+											role: 'cancel'
+										},
+										{
+											text: 'Delete',
+											handler: () => deleteData({ id: id })
+										}
+									]}
+								/>
+							</IonCol>
+						</IonRow>
+					</IonGrid>
+				</IonToolbar>
+			</IonHeader>
 
 			<IonContent fullscreen>
 				<IonList>
@@ -94,16 +167,6 @@ const Edit_Data = () => {
 						<IonRow class="ion-nowrap">
 							<IonCol size="5">
 								<IonListHeader>Details</IonListHeader>
-							</IonCol>
-							<IonCol>
-								<IonButton onClick={() => updateData({
-									siteName: siteName, category: category, contractNo: contractNo, tagNo: tagNo,
-									location: location, manufacturer: manufacturer, serialNo: serialNo, voltage: voltage, rpm: rpm, secure: secure, weatherproof: weatherproof,
-									cableMarked: cableMarked, earthed: earthed, installationTestDate: installationTestDate, comments: comments, id: id
-								})}>Update<PencilSquare size={25}></PencilSquare></IonButton>
-							</IonCol>
-							<IonCol>
-								<IonButton onClick={() => deleteData({ id: id })}>Detele<Trash size={25}></Trash></IonButton>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
