@@ -1,6 +1,8 @@
-import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
+import { ArrowLeft } from 'react-bootstrap-icons';
+import { useHistory } from 'react-router-dom';
 import firebase from '../../firebaseConfig';
 import { Site_Name } from '../Equipment_Types/Equipment_Types';
 
@@ -18,10 +20,11 @@ const Display_Data_In_Site = () => {
    const [busy, setBusy] = useState(false);
    const ref = firebase.firestore().collection("Data");
    const siteRef = ref.where('siteName', '==', Site_Name);
+   const history = useHistory();
 
    /**
-   * 	Gets Data:
-   * 	https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
+   * 	* Gets Data:
+   * 	* https://github.com/samfromaway/firebase-tutorial/blob/master/src/SnapshotFirebase.js
    */
    function getData() {
       setBusy(true);
@@ -33,6 +36,11 @@ const Display_Data_In_Site = () => {
          setDataList(items);
          setBusy(false);
       });
+   }
+
+   // Back Button
+   function back() {
+      history.push(`/page/Equip_Types/${Site_Name}`);
    }
 
    useEffect(() => {
@@ -72,7 +80,16 @@ const Display_Data_In_Site = () => {
                <IonButtons slot="start">
                   <IonMenuButton />
                </IonButtons>
-               <IonTitle>All Machines present in {Site_Name}</IonTitle>
+               <IonGrid>
+                  <IonRow>
+                     <IonCol size="3">
+                        <IonButton onClick={back}><ArrowLeft size={25}></ArrowLeft></IonButton>
+                     </IonCol>
+                     <IonCol>
+                        <IonTitle>All Machines present in {Site_Name}</IonTitle>
+                     </IonCol>
+                  </IonRow>
+               </IonGrid>
             </IonToolbar>
          </IonHeader>
 

@@ -1,6 +1,8 @@
-import { IonButtons, IonCard, IonCardHeader, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardHeader, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol } from '@ionic/react';
 import React from 'react';
+import { ArrowLeft } from 'react-bootstrap-icons';
 import { useParams } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 export var Site_Name;
 
@@ -20,8 +22,9 @@ const Equipment_Types = () => {
 	const pump_data = 'Pump';
 	const flow_meter_data = 'Flow Meter';
 	const { siteName } = useParams();
+	const history = useHistory();
 	Site_Name = siteName; // Applies siteName to the global variable Site_Name
-	
+
 	/**
 	 *		* Source: https://medium.com/@mertgursoy/how-to-refresh-a-page-only-once-with-javascript-cdbaf079fc73
 	 */
@@ -40,6 +43,11 @@ const Equipment_Types = () => {
 	}
 	reloadPage();
 
+	// Back Button
+	function back() {
+		history.push('/page/Site_List');
+	}
+
 	return (
 		<IonPage>
 			<IonHeader>
@@ -47,7 +55,16 @@ const Equipment_Types = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>Equipment Types {siteName}</IonTitle>
+					<IonGrid>
+						<IonRow>
+							<IonCol size="3">
+								<IonButton onClick={back}><ArrowLeft size={25}></ArrowLeft></IonButton>
+							</IonCol>
+							<IonCol>
+								<IonTitle>Equipment Types {siteName}</IonTitle>
+							</IonCol>
+						</IonRow>
+					</IonGrid>
 				</IonToolbar>
 			</IonHeader>
 
