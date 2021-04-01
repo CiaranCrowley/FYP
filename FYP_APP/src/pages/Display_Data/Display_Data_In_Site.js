@@ -1,8 +1,10 @@
-import { IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import firebase from '../../firebaseConfig';
 import { Equip_Type, Site_Name } from '../Equipment_Types/Equipment_Types';
+import { ArrowLeft } from 'react-bootstrap-icons';
+import { useHistory } from 'react-router-dom';
 
 const Display_Data_In_Site = () => {
 
@@ -19,6 +21,7 @@ const Display_Data_In_Site = () => {
 	const ref = firebase.firestore().collection("Data");
 	const requiredRef = ref.where('siteName', '==', Site_Name);
 	const categoryRef = requiredRef.where('category', '==', Equip_Type);
+	const history = useHistory();
 
 	/**
 	* 	Gets Data:
@@ -34,6 +37,11 @@ const Display_Data_In_Site = () => {
 			setDataList(items);
 			setBusy(false);
 		});
+	}
+
+	// Back Button
+	function back() {
+		history.push(`/page/Site_List`);
 	}
 
 	useEffect(() => {
@@ -55,7 +63,16 @@ const Display_Data_In_Site = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>{Equip_Type}s present in {Site_Name}</IonTitle>
+					<IonGrid>
+						<IonRow>
+							<IonCol size="3">
+								<IonButton onClick={back}><ArrowLeft size={25}></ArrowLeft></IonButton>
+							</IonCol>
+							<IonCol>
+								<IonTitle>{Equip_Type}s present in {Site_Name}</IonTitle>
+							</IonCol>
+						</IonRow>
+					</IonGrid>
 				</IonToolbar>
 			</IonHeader>
 

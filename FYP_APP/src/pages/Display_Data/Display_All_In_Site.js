@@ -40,7 +40,7 @@ const Display_Data_In_Site = () => {
 
    // Back Button
    function back() {
-      history.push(`/page/Equip_Types/${Site_Name}`);
+      history.push(`/page/Site_List`);
    }
 
    useEffect(() => {

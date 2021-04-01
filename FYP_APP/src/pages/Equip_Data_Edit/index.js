@@ -89,7 +89,7 @@ const Edit_Data = () => {
 
 	// Back Button
 	function back() {
-		history.push('/page/Display_All_In_Site');
+		history.push('/page/Site_List');
 	}
 
 	useEffect(() => {

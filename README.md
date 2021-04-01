@@ -7,7 +7,6 @@
 First, ensure that Node.js is installed and check that its version is above 10 with ```node -v```.
 If you already have Ionic installed, please uninstall it using the first two commands below.  
 > ** = Explaination  
-
 > Please ensure that you have Node.js instaled and that your npm version is at least 6.14.10
 
 ```bash
@@ -24,12 +23,13 @@ npx cap sync  **Run this after each build to update any new native code
 
 ***
 
-## Create a .env file in the project folder.
+## Create a .env file in the project folder
 
 Create a Firebase Project with a Firestore database and configure it approriately.
 > Ensure you Firestore Collection is named "data"
 
 In the Project settings, pull the values matching those below.
+
 ```bash
 REACT_APP_FIREBASE_AUTH_DOMAIN=
 REACT_APP_FIREBASE_PROJECT_ID=
