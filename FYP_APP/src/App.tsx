@@ -30,6 +30,7 @@ const Equip_Types = lazy(() => import("./pages/Equipment_Types/Equipment_Types")
 const Display_All_In_Site = lazy(() => import("./pages/Display_Data/Display_All_In_Site")); //Display all data entries in a given site page
 const Display_Data_In_Site = lazy(() => import("./pages/Display_Data/Display_Data_In_Site")); //Display all entries of a desired equipment type in a given site page
 const Create_Data = lazy(() => import("./pages/Create_Data/create_data"));
+const Add_Site = lazy(() => import("./pages/Create_Sites/create_sites"));
 
 const App: React.FC = () => {
 	return (
@@ -59,6 +60,9 @@ const App: React.FC = () => {
 
 							{/* New Create Data Page */}
 							<Route path="/page/Create_Data" component={Create_Data} exact />
+
+							{/* Add a new Site Page */}
+							<Route path="/page/Add_Site" component={Add_Site} exact />
 
 							<Redirect from="/" to="/page/Home" exact />
 						</IonRouterOutlet>
