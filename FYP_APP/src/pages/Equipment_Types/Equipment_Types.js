@@ -1,4 +1,7 @@
-import { IonButton, IonButtons, IonCard, IonCardHeader, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol } from '@ionic/react';
+import {
+	IonButton, IonButtons, IonCard, IonCardHeader,
+	IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar
+} from '@ionic/react';
 import React from 'react';
 import { ArrowLeft } from 'react-bootstrap-icons';
 import { useParams } from 'react-router';

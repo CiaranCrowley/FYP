@@ -1,4 +1,7 @@
-import { IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import {
+	IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonMenuButton, IonPage, IonRow,
+	IonTitle, IonToolbar
+} from '@ionic/react';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import firebase from '../../firebaseConfig';

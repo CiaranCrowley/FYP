@@ -1,10 +1,13 @@
-import { IonButton, IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import {
+	IonButton, IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle,
+	IonToolbar
+} from '@ionic/react';
 import { book, home, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
-import firebase from '../../firebaseConfig';
-import { Equip_Type, Site_Name } from '../Equipment_Types/Equipment_Types';
 import { ArrowLeft } from 'react-bootstrap-icons';
 import { useHistory } from 'react-router-dom';
+import firebase from '../../firebaseConfig';
+import { Equip_Type, Site_Name } from '../Equipment_Types/Equipment_Types';
 
 const Display_Data_In_Site = () => {
 

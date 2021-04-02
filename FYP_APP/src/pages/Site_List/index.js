@@ -1,10 +1,9 @@
-import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
-import { book, home, pricetag } from 'ionicons/icons';
+import {
+	IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonLoading, IonMenuButton,
+	IonPage, IonRow, IonTitle, IonToolbar
+} from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft } from 'react-bootstrap-icons';
-import { useHistory } from 'react-router-dom';
 import firebase from '../../firebaseConfig';
-import { Site_Name } from '../Equipment_Types/Equipment_Types';
 import './styles.css';
 
 

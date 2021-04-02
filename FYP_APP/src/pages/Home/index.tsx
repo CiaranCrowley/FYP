@@ -9,7 +9,8 @@ const Home: React.FC = () => {
 			<IonHeader>
 				<IonToolbar>
 					<IonButtons slot="start">
-						<IonMenuButton /> {/* Remove this towards end of development.  Dont want users to have access to menu options unless they are logged in */}
+						<IonMenuButton /> {//TODO  /* Remove this towards end of development.  Dont want users to have access to menu options unless they are logged in */
+						}
 					</IonButtons>
 					<IonTitle>Home</IonTitle>
 				</IonToolbar>
