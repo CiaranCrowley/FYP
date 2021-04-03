@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import firebase from '../../firebaseConfig';
+import { loggedInUser } from '../Login';
 import './style.css';
 
 const Create_Data = () => {
@@ -13,6 +14,7 @@ const Create_Data = () => {
 	const ref = firebase.firestore().collection('Data');
 
 	// Equipment Details
+	const user = loggedInUser;
 	const [siteName, setSiteName] = useState("");
 	const [category, setCategory] = useState("");
 	const [contractNo, setContractNo] = useState("");
@@ -55,7 +57,7 @@ const Create_Data = () => {
 								<IonTitle>Create</IonTitle>
 							</IonCol>
 							<IonCol size="12" offset='0.2'>
-								<button className="submitBtn" onClick={() => submit({ siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</button>
+								<button className="submitBtn" onClick={() => submit({ user, siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</button>
 							</IonCol>
 						</IonRow>
 					</IonGrid>
@@ -66,6 +68,10 @@ const Create_Data = () => {
 				<IonTitle className="ion-padding">Details</IonTitle>
 				<IonList>
 					<IonItemGroup>
+						<IonItem>
+							<IonLabel>Created By: </IonLabel>
+							<IonLabel>{user}</IonLabel>
+						</IonItem>
 						<IonItem>
 							<IonLabel>Site Name:</IonLabel>
 							<IonSelect placeholder="Site Name" value={siteName} onIonChange={(e) => setSiteName(e.target.value)}>

@@ -172,6 +172,10 @@ const Edit_Data = () => {
 					</IonGrid>
 					<IonItemGroup>
 						<IonItem>
+							<IonLabel>Created By: </IonLabel>
+							<IonLabel>{dataList.user}</IonLabel>
+						</IonItem>
+						<IonItem>
 							<IonLabel>Site Name:</IonLabel>
 							<IonSelect placeholder={dataList?.siteName} value={siteName} onIonChange={(e) => setSiteName(e.target.value)}>
 								<IonSelectOption value="Carrick-on-Suir">Carrick-on-Suir</IonSelectOption>

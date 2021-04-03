@@ -31,20 +31,20 @@ const Equipment_Types = () => {
 	/**
 	 *		* Source: https://medium.com/@mertgursoy/how-to-refresh-a-page-only-once-with-javascript-cdbaf079fc73
 	 */
-	function reloadPage() {
-		var currentDocumentTimestamp =
-			new Date(performance.timing.domLoading).getTime();
-		// Current Time
-		var now = Date.now();
-		// Ten Seconds
-		var tenSec = 10 * 1000;
-		// Plus Ten Seconds
-		var plusTenSec = currentDocumentTimestamp + tenSec;
-		if (now > plusTenSec) {
-			window.location.reload();
-		} else { }
-	}
-	reloadPage();
+	// function reloadPage() {
+	// 	var currentDocumentTimestamp =
+	// 		new Date(performance.timing.domLoading).getTime();
+	// 	// Current Time
+	// 	var now = Date.now();
+	// 	// Ten Seconds
+	// 	var tenSec = 10 * 1000;
+	// 	// Plus Ten Seconds
+	// 	var plusTenSec = currentDocumentTimestamp + tenSec;
+	// 	if (now > plusTenSec) {
+	// 		window.location.reload();
+	// 	} else { }
+	// }
+	// reloadPage();
 
 	// Back Button
 	function back() {

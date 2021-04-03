@@ -1,16 +1,37 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
+import { loggedInUser } from '../Login';
 import './styles.css';
-import { user } from '../Login/index';
 
 const Home = () => {
-	
+
 	function resetUser() {
+		var user = loggedInUser;
+		return user;
 	}
+	resetUser();
+
+	/**
+	 *		* Source: https://medium.com/@mertgursoy/how-to-refresh-a-page-only-once-with-javascript-cdbaf079fc73
+	 */
+	function reloadPage() {
+		var currentDocumentTimestamp =
+			new Date(performance.timing.domLoading).getTime();
+		// Current Time
+		var now = Date.now();
+		// Ten Seconds
+		var tenSec = 10 * 1000;
+		// Plus Ten Seconds
+		var plusTenSec = currentDocumentTimestamp + tenSec;
+		if (now > plusTenSec) {
+			window.location.reload();
+		} else { }
+	}
+	// reloadPage();
 
 	return (
 		<IonPage>
-			{resetUser()}
+			{/* {reloadPage} */}
 			<IonHeader>
 				<IonToolbar>
 					<IonButtons slot="start">
