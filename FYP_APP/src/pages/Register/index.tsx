@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonList, IonLoading, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonList, IonLoading, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState } from "react";
 import { Link, useHistory } from 'react-router-dom';
 import firebase from '../../firebaseConfig';
@@ -40,8 +40,6 @@ const Register: React.FC = () => {
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
-					<IonButtons slot="start">
-					</IonButtons>
 					<IonTitle className="ion-text-center">Register</IonTitle>
 				</IonToolbar>
 			</IonHeader>

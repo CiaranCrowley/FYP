@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { loggedInUser } from '../Login';
 import './styles.css';
@@ -31,13 +31,8 @@ const Home = () => {
 
 	return (
 		<IonPage>
-			{/* {reloadPage} */}
 			<IonHeader>
 				<IonToolbar>
-					<IonButtons slot="start">
-						<IonMenuButton /> {//TODO  /* Remove this towards end of development.  Dont want users to have access to menu options unless they are logged in */
-						}
-					</IonButtons>
 					<IonTitle>Home</IonTitle>
 				</IonToolbar>
 			</IonHeader>
