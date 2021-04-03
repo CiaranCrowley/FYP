@@ -5,6 +5,8 @@ import firebase from '../../firebaseConfig';
 import { toast } from '../../toast';
 import './styles.css';
 
+export var user = "";
+
 const Login: React.FC = () => {
 
 	const [busy, setBusy] = useState<boolean>(false);
@@ -17,6 +19,7 @@ const Login: React.FC = () => {
 		setBusy(true);
 		try {
 			await firebase.auth().signInWithEmailAndPassword(email, password);
+			user = email;
 			history.push('/page/Site_List');
 			setBusy(false);
 			return true;

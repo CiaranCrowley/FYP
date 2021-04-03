@@ -11,7 +11,16 @@ import {
 } from '@ionic/react';
 import { heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
+import { user } from '../pages/Login';
 import './Menu.css';
+
+function checkLogin() {
+  if (user === null || user === "") {
+    return (
+      <IonContent></IonContent>
+    )
+  }
+}
 
 
 interface AppPage {
@@ -62,7 +71,7 @@ const Menu: React.FC = () => {
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonNote>{user}</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

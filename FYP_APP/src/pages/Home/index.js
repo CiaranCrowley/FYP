@@ -1,11 +1,16 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import './styles.css';
+import { user } from '../Login/index';
 
-const Home: React.FC = () => {
+const Home = () => {
+	
+	function resetUser() {
+	}
 
 	return (
 		<IonPage>
+			{resetUser()}
 			<IonHeader>
 				<IonToolbar>
 					<IonButtons slot="start">
