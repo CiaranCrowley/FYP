@@ -1,11 +1,12 @@
 import {
+	IonButton,
 	IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonMenuButton, IonPage, IonRow,
 	IonTitle, IonToolbar
 } from '@ionic/react';
 import React, { useState } from 'react';
+import { Save } from 'react-bootstrap-icons';
 import { v4 as uuidv4 } from "uuid";
 import firebase from '../../firebaseConfig';
-import './style.css';
 
 const Create_Sites = () => {
 
@@ -43,7 +44,9 @@ const Create_Sites = () => {
 								<IonTitle>Add a new Site</IonTitle>
 							</IonCol>
 							<IonCol size="12" offset='0.2'>
-								<button className="submitBtn" onClick={() => submit({ siteName, contact, manager, address, id: uuidv4() })}>Submit</button>
+								<IonButton onClick={() => submit({
+									siteName, contact, manager, address, id: uuidv4()
+								})}><Save size ="25"></Save></IonButton>
 							</IonCol>
 						</IonRow>
 					</IonGrid>

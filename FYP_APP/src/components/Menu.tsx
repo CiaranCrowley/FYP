@@ -9,7 +9,7 @@ import {
   IonMenuToggle,
   IonNote
 } from '@ionic/react';
-import { heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
+import { add, business, home, logIn, logOut, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
 import { loggedInUser } from '../pages/Login';
 import './Menu.css';
@@ -24,20 +24,14 @@ const appPages: AppPage[] = [
   {
     title: 'Home',
     url: '/page/Home',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
-  },
-  {
-    title: 'Site List',
-    url: '/page/Site_List',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    iosIcon: home,
+    mdIcon: home
   },
   {
     title: 'Login',
     url: '/page/Login',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    iosIcon: logIn,
+    mdIcon: logIn
   },
   {
     title: 'Register',
@@ -46,12 +40,20 @@ const appPages: AppPage[] = [
     mdIcon: paperPlaneSharp
   },
   {
+    title: 'Site List',
+    url: '/page/Site_List',
+    iosIcon: business,
+    mdIcon: business
+  },
+  {
     title: 'Add Site',
     url: '/page/Add_Site',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
+    iosIcon: add,
+    mdIcon: add
   }
 ];
+
+const labels = ['Log out'];
 
 const Menu: React.FC = () => {
   const location = useLocation();
@@ -72,6 +74,14 @@ const Menu: React.FC = () => {
               </IonMenuToggle>
             );
           })}
+        </IonList>
+        <IonList id="labels-list">
+          {labels.map((label, index) => (
+            <IonItem lines="none" key={index} routerLink={`/page/Home`}>
+              <IonIcon slot="start" icon={logOut} />
+              <IonLabel>{label}</IonLabel>
+            </IonItem>
+          ))}
         </IonList>
       </IonContent>
     </IonMenu>

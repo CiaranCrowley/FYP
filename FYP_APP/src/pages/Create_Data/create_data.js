@@ -1,13 +1,14 @@
 import {
+	IonButton,
 	IonButtons, IonCol, IonContent, IonDatetime, IonGrid, IonHeader, IonInput, IonItem, IonItemGroup, IonLabel, IonList, IonMenuButton, IonPage,
 	IonRow, IonSelect, IonSelectOption, IonTextarea, IonTitle, IonToolbar
 } from '@ionic/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import { Save } from 'react-bootstrap-icons';
 import { v4 as uuidv4 } from "uuid";
 import firebase from '../../firebaseConfig';
 import { loggedInUser } from '../Login';
-import './style.css';
 
 const Create_Data = () => {
 
@@ -57,7 +58,12 @@ const Create_Data = () => {
 								<IonTitle>Create</IonTitle>
 							</IonCol>
 							<IonCol size="12" offset='0.2'>
-								<button className="submitBtn" onClick={() => submit({ user, siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</button>
+								{/* <button className="submitBtn" onClick={() => submit({ user, siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</button> */}
+								<IonButton onClick={() => submit({
+									user, siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage,
+									rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4()
+								})}><Save size="25"></Save></IonButton>
+
 							</IonCol>
 						</IonRow>
 					</IonGrid>
