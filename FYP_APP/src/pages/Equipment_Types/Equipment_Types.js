@@ -12,6 +12,24 @@ export var Site_Name, Equip_Type;
 const Equipment_Types = () => {
 
 	/**
+	 *		* Source: https://medium.com/@mertgursoy/how-to-refresh-a-page-only-once-with-javascript-cdbaf079fc73
+	 */
+	function reloadPage() {
+		var currentDocumentTimestamp =
+			new Date(performance.timing.domLoading).getTime();
+		// Current Time
+		var now = Date.now();
+		// Ten Seconds
+		var tenSec = 10 * 1000;
+		// Plus Ten Seconds
+		var plusTenSec = currentDocumentTimestamp + tenSec;
+		if (now > plusTenSec) {
+			window.location.reload();
+		} else { }
+	}
+	reloadPage();
+
+	/**
 	 * 	? What does this page need to do?
 	 * 	* It needs to display some come cards which will allow the user to click on a card and be taken =>
 	 *    * to the page where each entry of that equipment type, located in that site, is displayed.
@@ -20,31 +38,13 @@ const Equipment_Types = () => {
 	 *    * Get Site Name with useParams and store it in a variable and export it.
 	 */
 
-	// TODO: Find a way around this.  Not good to have this hard coded
 	const motor_data = 'Motor';
 	const pump_data = 'Pump';
 	const flow_meter_data = 'Flow Meter';
 	const { siteName } = useParams();
+	console.log(siteName);
 	const history = useHistory();
-	Site_Name = siteName; // Applies siteName to the global variable Site_Name
-
-	/**
-	 *		* Source: https://medium.com/@mertgursoy/how-to-refresh-a-page-only-once-with-javascript-cdbaf079fc73
-	 */
-	// function reloadPage() {
-	// 	var currentDocumentTimestamp =
-	// 		new Date(performance.timing.domLoading).getTime();
-	// 	// Current Time
-	// 	var now = Date.now();
-	// 	// Ten Seconds
-	// 	var tenSec = 10 * 1000;
-	// 	// Plus Ten Seconds
-	// 	var plusTenSec = currentDocumentTimestamp + tenSec;
-	// 	if (now > plusTenSec) {
-	// 		window.location.reload();
-	// 	} else { }
-	// }
-	// reloadPage();
+	Site_Name = siteName;
 
 	// Back Button
 	function back() {

@@ -8,14 +8,13 @@ import React, { useState } from 'react';
 import { Save } from 'react-bootstrap-icons';
 import { v4 as uuidv4 } from "uuid";
 import firebase from '../../firebaseConfig';
-import { loggedInUser } from '../Login';
 
 const Create_Data = () => {
 
 	const ref = firebase.firestore().collection('Data');
 
 	// Equipment Details
-	const user = loggedInUser;
+	const [user, setUser] = useState("");
 	const [siteName, setSiteName] = useState("");
 	const [category, setCategory] = useState("");
 	const [contractNo, setContractNo] = useState("");
@@ -58,7 +57,6 @@ const Create_Data = () => {
 								<IonTitle>Create</IonTitle>
 							</IonCol>
 							<IonCol size="12" offset='0.2'>
-								{/* <button className="submitBtn" onClick={() => submit({ user, siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage, rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4() })}>Submit</button> */}
 								<IonButton onClick={() => submit({
 									user, siteName, category, contractNo, tagNo, location, manufacturer, serialNo, voltage,
 									rpm, secure, weatherproof, cableMarked, earthed, installationTestDate, comments, id: uuidv4()
@@ -76,7 +74,7 @@ const Create_Data = () => {
 					<IonItemGroup>
 						<IonItem>
 							<IonLabel>Created By: </IonLabel>
-							<IonLabel>{user}</IonLabel>
+							<IonInput placeholder="Your Name" value={user} onIonChange={(e) => setUser(e.target.value)}></IonInput>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Site Name:</IonLabel>

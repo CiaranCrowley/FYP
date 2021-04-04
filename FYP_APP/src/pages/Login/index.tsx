@@ -20,6 +20,7 @@ const Login: React.FC = () => {
 		try {
 			await firebase.auth().signInWithEmailAndPassword(email, password);
 			loggedInUser = email;
+			await firebase.auth().signOut();
 			history.push('/page/Site_List');
 			setBusy(false);
 			return true;

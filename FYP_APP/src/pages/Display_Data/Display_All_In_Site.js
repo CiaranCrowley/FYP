@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
    IonButton, IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle,
    IonToolbar
 } from '@ionic/react';
-import { book, home, pricetag, person } from 'ionicons/icons';
+import { book, home, person, pricetag } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft } from 'react-bootstrap-icons';
 import { useHistory } from 'react-router-dom';
@@ -21,8 +22,7 @@ const Display_Data_In_Site = () => {
 
    const [dataList, setDataList] = useState([]);
    const [busy, setBusy] = useState(false);
-   const ref = firebase.firestore().collection("Data");
-   const siteRef = ref.where('siteName', '==', Site_Name);
+   const ref = firebase.firestore().collection("Data").where('siteName', '==', Site_Name);
    const history = useHistory();
 
    /**
@@ -31,7 +31,7 @@ const Display_Data_In_Site = () => {
    */
    function getData() {
       setBusy(true);
-      siteRef.onSnapshot((querySnapshot) => {
+      ref.onSnapshot((querySnapshot) => {
          const items = [];
          querySnapshot.forEach((doc) => {
             items.push(doc.data());
