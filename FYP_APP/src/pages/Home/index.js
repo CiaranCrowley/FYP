@@ -27,7 +27,7 @@ const Home = () => {
 			window.location.reload();
 		} else { }
 	}
-	// reloadPage();
+	reloadPage();
 
 	return (
 		<IonPage>
