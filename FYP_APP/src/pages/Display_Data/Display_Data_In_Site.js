@@ -2,7 +2,7 @@ import {
 	IonButton, IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonLoading, IonMenuButton, IonPage, IonRow, IonTitle,
 	IonToolbar
 } from '@ionic/react';
-import { book, home, pricetag } from 'ionicons/icons';
+import { book, home, pricetag, person } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft } from 'react-bootstrap-icons';
 import { useHistory } from 'react-router-dom';
@@ -98,6 +98,10 @@ const Display_Data_In_Site = () => {
 							<IonRow class="ion-nowrap">
 								<IonCol size="0"><IonIcon icon={home}></IonIcon></IonCol>
 								<IonCol size="12" offset='0.2'>Site Name: {data.siteName}</IonCol>
+							</IonRow>
+							<IonRow class="ion-nowrap">
+								<IonCol size="0"><IonIcon icon={person}></IonIcon></IonCol>
+								<IonCol size="12" offset='0.2'>Created By: {data.user}</IonCol>
 							</IonRow>
 						</IonGrid>
 					</IonCard>
