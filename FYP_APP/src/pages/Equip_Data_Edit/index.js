@@ -7,6 +7,7 @@ import { ArrowLeft, PencilSquare, Trash } from 'react-bootstrap-icons';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
 import firebase from '../../firebaseConfig';
+import "./style.css"
 
 const Edit_Data = () => {
 
@@ -274,47 +275,7 @@ const Edit_Data = () => {
 				</IonList>
 
 				<IonList>
-					<IonListHeader>Commissioning Tests</IonListHeader>
 					<IonItemGroup>
-						<IonItem>
-							<IonLabel>E-Stop/Isolator Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Continuity Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Voltage Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Overload Setting</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Heater Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Thermistor Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Seal Leak Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Insulation Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Resistance Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Opetating Voltage Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Rotation Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Operation on HMI?SCADA</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Test Equipment Type</IonLabel>
-						</IonItem>
 						<IonItem>
 							<IonLabel>Comments</IonLabel>
 							<IonTextarea placeholder="Comments" value={comments} onIonChange={(e) => setComments(e.target.value)}></IonTextarea>

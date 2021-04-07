@@ -174,53 +174,11 @@ const Create_Data = () => {
 					</IonItemGroup>
 				</IonList>
 
-				<IonTitle className="ion-padding">Commissioning Tests</IonTitle>
 				<IonList>
-					<IonItemGroup>
-						<IonItem>
-							<IonLabel>E-Stop/Isolator Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Continuity Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Voltage Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Overload Setting</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Heater Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Thermistor Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Seal Leak Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Insulation Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Resistance Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Opetating Voltage Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Rotation Check</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Operation on HMI?SCADA</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Test Equipment Type</IonLabel>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Comments</IonLabel>
-							<IonTextarea placeholder="Comments" value={comments} onIonChange={(e) => setComments(e.target.value)}></IonTextarea>
-						</IonItem>
-					</IonItemGroup>
+					<IonItem>
+						<IonLabel>Comments</IonLabel>
+						<IonTextarea placeholder="Comments" value={comments} onIonChange={(e) => setComments(e.target.value)}></IonTextarea>
+					</IonItem>
 				</IonList>
 			</IonContent>
 
