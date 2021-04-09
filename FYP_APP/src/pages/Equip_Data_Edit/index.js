@@ -238,28 +238,28 @@ const Edit_Data = () => {
 					<IonItemGroup>
 						<IonItem>
 							<IonLabel>Secure</IonLabel>
-							<IonSelect placeholder="Secure" value={secure} onIonChange={(e) => setSecure(e.target.value)}>
+							<IonSelect placeholder={dataList?.secure} value={secure} onIonChange={(e) => setSecure(e.target.value)}>
 								<IonSelectOption value="Yes">Yes</IonSelectOption>
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Weatherproof</IonLabel>
-							<IonSelect placeholder="Weatherproof" value={weatherproof} onIonChange={(e) => setWeatherproof(e.target.value)}>
+							<IonSelect placeholder={dataList?.weatherproof} value={weatherproof} onIonChange={(e) => setWeatherproof(e.target.value)}>
 								<IonSelectOption value="Yes">Yes</IonSelectOption>
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Cable Marked</IonLabel>
-							<IonSelect placeholder="Cable Marked" value={cableMarked} onIonChange={(e) => setCableMarked(e.target.value)}>
+							<IonSelect placeholder={dataList?.cableMarked} value={cableMarked} onIonChange={(e) => setCableMarked(e.target.value)}>
 								<IonSelectOption value="Yes">Yes</IonSelectOption>
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
 						</IonItem>
 						<IonItem>
 							<IonLabel>Earthed</IonLabel>
-							<IonSelect placeholder="Earthed" value={earthed} onIonChange={(e) => setEarthed(e.target.value)}>
+							<IonSelect placeholder={dataList?.earthed} value={earthed} onIonChange={(e) => setEarthed(e.target.value)}>
 								<IonSelectOption value="Yes">Yes</IonSelectOption>
 								<IonSelectOption value="No">No</IonSelectOption>
 							</IonSelect>
@@ -269,7 +269,8 @@ const Edit_Data = () => {
 						</IonItem>
 						<IonItem>
 							<IonLabel>Date</IonLabel>
-							<IonDatetime value={installationTestDate} onIonChange={(e) => setInstallationtestDate(e.target.value)}></IonDatetime>
+							<IonDatetime placeholder={dataList?.installationTestDate} value={installationTestDate} onIonChange={(e) =>
+								setInstallationtestDate(e.target.value)}></IonDatetime>
 						</IonItem>
 					</IonItemGroup>
 				</IonList>
