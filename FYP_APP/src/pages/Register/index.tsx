@@ -18,10 +18,12 @@ const Register: React.FC = () => {
 		setBusy(true);
 		// Validation
 		if (password !== cpassword) {
-			return toast('Passwords do not match');
+			toast('Passwords do not match');
+			return setBusy(false);
 		}
 		if (email === '' || password === '') {
-			return toast('Username and password are required');
+			toast('Username and password are required');
+			return setBusy(false);
 		}
 
 		try {
@@ -32,7 +34,7 @@ const Register: React.FC = () => {
 			return true;
 		} catch (error) {
 			toast(error.message, 4000);
-			return false;
+			return setBusy(false);
 		}
 	}
 
