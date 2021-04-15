@@ -2,3 +2,17 @@
    --placeholder-color: white;
    --placeholder-opacity: 1;
 }
+
+ion-select {
+   --placeholder-opacity: 1 !important;
+   color: rgb(255, 255, 255);
+}
+
+.dateTime {
+   --placeholder-color: rgb(255, 255, 255);
+}
+
+.Comments {
+   --placeholder-opacity: 1 !important;
+   color: rgb(255, 255, 255);
+}
