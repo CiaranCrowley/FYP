@@ -54,7 +54,7 @@ const Site_List = () => {
 					<IonButtons slot="start">
 						<IonMenuButton />
 					</IonButtons>
-					<IonTitle>Site List</IonTitle>
+					<IonTitle className="ion-text-center">Site List</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 

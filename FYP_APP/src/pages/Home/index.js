@@ -33,7 +33,7 @@ const Home = () => {
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
-					<IonTitle>Home</IonTitle>
+					<IonTitle className="ion-text-center">Home</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
