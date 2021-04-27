@@ -49,6 +49,22 @@ const Edit_Data = () => {
 		dataRef.get(id).then(doc => {
 			const data = { id: doc.id, ...doc.data() }
 			setDataList(data);
+
+			setTagNo(data?.tagNo);
+			setContractNo(data?.contractNo);
+			setSiteName(data?.siteName);
+			setCategory(data?.category);
+			setLocation(data?.location);
+			setManufacturer(data?.manufacturer);
+			setSerialNo(data?.serialNo);
+			setVoltage(data?.voltage);
+			setRPM(data?.rpm);
+			setSecure(data?.secure);
+			setWeatherproof(data?.weatherproof);
+			setCableMarked(data?.cableMarked);
+			setEarthed(data?.earthed);
+			setInstallationtestDate(data?.setInstallationtestDate);
+			setComments(data?.comments);
 		});
 		setBusy(false);
 	}
@@ -172,10 +188,22 @@ const Edit_Data = () => {
 						</IonRow>
 					</IonGrid>
 					<IonItemGroup>
+
 						<IonItem>
 							<IonLabel>Created By: </IonLabel>
 							<IonLabel>{dataList.user}</IonLabel>
 						</IonItem>
+
+						<IonItem>
+							<IonLabel>Contract No.:</IonLabel>
+							<IonInput placeholder="Contract No." value={contractNo} onIonChange={(e) => setContractNo(e.target.value)} disabled="true"></IonInput>
+						</IonItem>
+
+						<IonItem>
+							<IonLabel>Tag No.:</IonLabel>
+							<IonInput placeholder="Tag No.:" value={dataList?.tagNo} onIonChange={(e) => setTagNo(e.target.value)} disabled="true"></IonInput>
+						</IonItem>
+
 						<IonItem>
 							<IonLabel>Site Name:</IonLabel>
 							<IonSelect placeholder={dataList?.siteName} value={siteName} onIonChange={(e) => setSiteName(e.target.value)}>
@@ -184,6 +212,7 @@ const Edit_Data = () => {
 								<IonSelectOption value="Waterford">Waterford</IonSelectOption>
 							</IonSelect>
 						</IonItem>
+
 						<IonItem>
 							<IonLabel>Category:</IonLabel>
 							<IonSelect placeholder={dataList?.category} value={category} onIonChange={(e) => setCategory(e.target.value)}>
@@ -192,14 +221,6 @@ const Edit_Data = () => {
 								<IonSelectOption value="Flow Meter">Flow Meter</IonSelectOption>
 								<IonSelectOption value="Blank">Blank</IonSelectOption>
 							</IonSelect>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Contract No.:</IonLabel>
-							<IonInput placeholder={dataList?.contractNo} value={contractNo} onIonChange={(e) => setContractNo(e.target.value)}></IonInput>
-						</IonItem>
-						<IonItem>
-							<IonLabel>Tag No.:</IonLabel>
-							<IonInput placeholder={dataList?.tagNo} value={tagNo} onIonChange={(e) => setTagNo(e.target.value)}></IonInput>
 						</IonItem>
 
 						<IonItem>
@@ -210,6 +231,7 @@ const Edit_Data = () => {
 								<IonSelectOption value="Waste">Waste</IonSelectOption>
 							</IonSelect>
 						</IonItem>
+
 						<IonItem>
 							<IonLabel>Manufacturer:</IonLabel>
 							<IonSelect placeholder={dataList?.manufacturer} value={manufacturer} onIonChange={(e) => setManufacturer(e.target.value)}>
@@ -218,18 +240,22 @@ const Edit_Data = () => {
 								<IonSelectOption value="Honda">Honda</IonSelectOption>
 							</IonSelect>
 						</IonItem>
+
 						<IonItem>
 							<IonLabel>Serial No.:</IonLabel>
 							<IonInput placeholder={dataList?.serialNo} value={serialNo} onIonChange={(e) => setSerialNo(e.target.value)}></IonInput>
 						</IonItem>
+
 						<IonItem>
 							<IonLabel>Voltage:</IonLabel>
 							<IonInput placeholder={dataList?.voltage} value={voltage} onIonChange={(e) => setVoltage(e.target.value)}></IonInput>
 						</IonItem>
+
 						<IonItem>
 							<IonLabel>RPM:</IonLabel>
 							<IonInput placeholder={dataList?.rpm} value={rpm} onIonChange={(e) => setRPM(e.target.value)}></IonInput>
 						</IonItem>
+
 					</IonItemGroup>
 				</IonList>
 
