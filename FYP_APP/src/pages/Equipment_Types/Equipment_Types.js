@@ -6,6 +6,7 @@ import React from 'react';
 import { ArrowLeft } from 'react-bootstrap-icons';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
+import './styles.css';
 
 export var Site_Name, Equip_Type;
 
@@ -72,11 +73,12 @@ const Equipment_Types = () => {
 					</IonButtons>
 					<IonGrid>
 						<IonRow>
-							<IonCol size="3">
+							<IonCol size="1">
 								<IonButton onClick={back}><ArrowLeft size={25}></ArrowLeft></IonButton>
 							</IonCol>
+							<IonCol></IonCol>
 							<IonCol>
-								<IonTitle>Equipment Types {siteName}</IonTitle>
+								<IonTitle className="font">Equipment Types {siteName}</IonTitle>
 							</IonCol>
 						</IonRow>
 					</IonGrid>

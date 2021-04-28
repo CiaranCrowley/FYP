@@ -130,11 +130,12 @@ const Edit_Data = () => {
 					</IonButtons>
 					<IonGrid>
 						<IonRow>
-							<IonCol size="3">
+							<IonCol size="1">
 								<IonButton onClick={back}><ArrowLeft size={25}></ArrowLeft></IonButton>
 							</IonCol>
-							<IonCol size="5">
-								<IonTitle>View, Edit, or Delete Data</IonTitle>
+							<IonCol></IonCol>
+							<IonCol>
+								<IonTitle className="font">View, Edit, or Delete Data</IonTitle>
 							</IonCol>
 							<IonCol>
 								<IonButton onClick={() => setUpdateAlert(true)}><PencilSquare size={25}></PencilSquare></IonButton>

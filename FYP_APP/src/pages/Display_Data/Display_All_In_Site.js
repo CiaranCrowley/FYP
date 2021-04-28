@@ -9,6 +9,7 @@ import { ArrowLeft } from 'react-bootstrap-icons';
 import { useHistory } from 'react-router-dom';
 import firebase from '../../firebaseConfig';
 import { Site_Name } from '../Equipment_Types/Equipment_Types';
+import './styles.css';
 
 const Display_Data_In_Site = () => {
 
@@ -85,11 +86,12 @@ const Display_Data_In_Site = () => {
                </IonButtons>
                <IonGrid>
                   <IonRow>
-                     <IonCol size="3">
+                     <IonCol size="1">
                         <IonButton onClick={back}><ArrowLeft size={25}></ArrowLeft></IonButton>
                      </IonCol>
+                     <IonCol></IonCol>
                      <IonCol>
-                        <IonTitle>All Machines present in {Site_Name}</IonTitle>
+                        <IonTitle className="font">All Machines present in {Site_Name}</IonTitle>
                      </IonCol>
                   </IonRow>
                </IonGrid>
